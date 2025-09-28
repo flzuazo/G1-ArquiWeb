@@ -33,5 +33,5 @@ public class Usuario {
     @JoinColumn(name="idProfesional", referencedColumnName = "idProfesional")
     private ProfesionalSalud profesional;
 }
-//prueba commit branch
+//prueba commit brancH
 
