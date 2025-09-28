@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
-    List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer idPaciente);
+    List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 }

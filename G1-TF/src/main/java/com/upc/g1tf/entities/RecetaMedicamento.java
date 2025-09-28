@@ -17,12 +17,12 @@ public class RecetaMedicamento {
 
     @ManyToOne
     @MapsId("idReceta")
-    @JoinColumn(name = "idReceta")
+    @JoinColumn(name = "id_receta")
     private Receta receta;
 
     @ManyToOne
     @MapsId("idMedicamento")
-    @JoinColumn(name = "idMedicamento")
+    @JoinColumn(name = "id_medicamento")
     private Medicamento medicamento;
 
     private String indicaciones;

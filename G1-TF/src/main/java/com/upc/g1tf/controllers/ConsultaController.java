@@ -30,7 +30,8 @@ public class ConsultaController {
     }
 
     @PutMapping("/modificar_consulta/{id}")
-    public ConsultaDTO modificarConsulta(@RequestBody ConsultaDTO consultaDTO) {
+    public ConsultaDTO modificarConsulta(@PathVariable Integer id, @RequestBody ConsultaDTO consultaDTO) {
+        consultaDTO.setIdConsulta(id);
         return consultaService.modificarConsulta(consultaDTO);
     }
 
