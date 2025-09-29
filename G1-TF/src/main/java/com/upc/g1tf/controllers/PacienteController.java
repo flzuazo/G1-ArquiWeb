@@ -1,6 +1,7 @@
 package com.upc.g1tf.controllers;
 
 import com.upc.g1tf.dtos.PacienteDTO;
+import com.upc.g1tf.dtos.PacienteUpdateDTO;
 import com.upc.g1tf.interfaces.IPacienteService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -23,5 +24,10 @@ public class PacienteController {
     public ResponseEntity<PacienteDTO> registrarPaciente(@Valid @RequestBody PacienteDTO pacienteDTO) {
         PacienteDTO nuevoPaciente = pacienteService.registrarPaciente(pacienteDTO);
         return ResponseEntity.ok(nuevoPaciente);
+    }
+    @PutMapping("/actualizar_paciente/{id}")
+    public ResponseEntity<PacienteDTO> actualizarPaciente(@PathVariable Integer id, @Valid @RequestBody PacienteUpdateDTO updateDTO) {
+        PacienteDTO actualizado = pacienteService.actualizarPaciente(id, updateDTO);
+        return ResponseEntity.ok(actualizado);
     }
 }
