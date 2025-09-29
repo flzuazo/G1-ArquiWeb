@@ -14,8 +14,8 @@ import lombok.Setter;
 public class CentroMedico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCentro;
-    private String nombre;
+    private Integer idCentroMedico;
+    private String nombreCentro;
     private String direccion;
     private String telefono;
 }

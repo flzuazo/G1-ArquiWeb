@@ -38,7 +38,7 @@ public class ConsultaService implements IConsultaService {
         dto.setIdConsulta(consulta.getIdConsulta());
         dto.setIdPaciente(consulta.getPaciente().getIdPaciente());
         dto.setIdProfesional(consulta.getProfesional().getIdProfesional());
-        dto.setIdCentroMedico(consulta.getCentroMedico().getIdCentro());
+        dto.setIdCentroMedico(consulta.getCentroMedico().getIdCentroMedico());
         dto.setFechaConsulta(consulta.getFechaConsulta());
         dto.setDiagnostico(consulta.getDiagnostico());
         dto.setTratamiento(consulta.getTratamiento());

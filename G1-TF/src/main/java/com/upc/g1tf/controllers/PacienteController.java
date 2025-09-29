@@ -1,6 +1,7 @@
 package com.upc.g1tf.controllers;
 
 import com.upc.g1tf.dtos.PacienteDTO;
+import com.upc.g1tf.dtos.PacienteHistorialDTO;
 import com.upc.g1tf.dtos.PacienteUpdateDTO;
 import com.upc.g1tf.interfaces.IPacienteService;
 import jakarta.validation.Valid;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 public class PacienteController {
     @Autowired
     private IPacienteService pacienteService;
-    @Autowired
-    private ModelMapper modelMapper;
 
     @PostMapping("/nuevo_paciente")// HU02
     public ResponseEntity<PacienteDTO> registrarPaciente(@Valid @RequestBody PacienteDTO pacienteDTO) {
@@ -28,4 +27,14 @@ public class PacienteController {
         PacienteDTO actualizado = pacienteService.actualizarPaciente(id, updateDTO);
         return ResponseEntity.ok(actualizado);
     }
+
+    // ===== HU12 – Actualizar Antecedentes =====
+    @PutMapping("/paciente/{id}/historial")
+    //@PreAuthorize("hasAnyRole('ADMIN','DOCTOR')")
+    public ResponseEntity<PacienteDTO> actualizarHistorial(
+            @PathVariable Integer id,
+            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este!
+        return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
+    }
+
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Setter
@@ -33,5 +34,8 @@ public class Paciente {
 
     @Column(length = 500)
     private String alergias;
+
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Consulta> consultas = new java.util.ArrayList<>();
 
 }
