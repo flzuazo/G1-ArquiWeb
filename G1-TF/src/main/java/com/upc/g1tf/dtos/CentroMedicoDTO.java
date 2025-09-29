@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CentroMedicoDTO {
     private Integer idCentro;
-    private String nombre;
+    private String nombreCentro;
     private String direccion;
     private String telefono;
 }
