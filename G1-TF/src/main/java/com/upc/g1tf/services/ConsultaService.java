@@ -40,8 +40,8 @@ public class ConsultaService implements IConsultaService {
         dto.setIdProfesional(consulta.getProfesional().getIdProfesional());
         dto.setIdCentroMedico(consulta.getCentroMedico().getIdCentroMedico());
         dto.setFechaConsulta(consulta.getFechaConsulta());
-        dto.setDiagnostico(consulta.getDiagnostico());
-        dto.setTratamiento(consulta.getTratamiento());
+        //dto.setDiagnostico(consulta.getDiagnostico());
+        //dto.setTratamiento(consulta.getTratamiento());
         return dto;
     }
 
@@ -67,8 +67,8 @@ public class ConsultaService implements IConsultaService {
         consulta.setProfesional(profesional);
         consulta.setCentroMedico(centro);
         consulta.setFechaConsulta(dto.getFechaConsulta());
-        consulta.setDiagnostico(dto.getDiagnostico());
-        consulta.setTratamiento(dto.getTratamiento());
+        //consulta.setDiagnostico(dto.getDiagnostico());
+        //consulta.setTratamiento(dto.getTratamiento());
 
 
         consulta = consultaRepository.save(consulta);
@@ -100,8 +100,8 @@ public class ConsultaService implements IConsultaService {
                 .orElseThrow(() -> new RuntimeException("Consulta no encontrada: " + consultaDTO.getIdConsulta()));
 
         consulta.setFechaConsulta(consultaDTO.getFechaConsulta());
-        consulta.setDiagnostico(consultaDTO.getDiagnostico());
-        consulta.setTratamiento(consultaDTO.getTratamiento());
+        //consulta.setDiagnostico(consultaDTO.getDiagnostico());
+        //consulta.setTratamiento(consultaDTO.getTratamiento());
 
         consulta = consultaRepository.save(consulta);
         return toDTO(consulta);

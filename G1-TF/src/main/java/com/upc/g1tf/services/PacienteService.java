@@ -116,8 +116,8 @@ public class PacienteService implements IPacienteService {
                 consulta.setCentroMedico(centro);
                 consulta.setProfesional(profesional);
                 consulta.setFechaConsulta(cDto.getFechaConsulta());
-                consulta.setDiagnostico(cDto.getDiagnostico());
-                consulta.setTratamiento(cDto.getTratamiento());
+                //consulta.setDiagnostico(cDto.getDiagnostico());
+                //consulta.setTratamiento(cDto.getTratamiento());
 
                 paciente.getConsultas().add(consulta);
             });
