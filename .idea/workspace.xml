@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Problema de registro de consultas solucionado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteHistorialDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteHistorialDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/PacienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759187894053</updated>
       <workItem from="1759187897955" duration="534000" />
-      <workItem from="1759201588150" duration="1804000" />
+      <workItem from="1759201588150" duration="2487000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -114,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759195710182</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Problema de registro de consultas solucionado">
+      <option name="closed" value="true" />
+      <created>1759203418421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759203418421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

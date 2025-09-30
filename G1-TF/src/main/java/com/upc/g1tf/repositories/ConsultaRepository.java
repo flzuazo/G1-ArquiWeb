@@ -13,7 +13,7 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
     @Query("""
         SELECT p.idPaciente, p.nombres, p.apellidos, p.dni,
-               c.fechaConsulta, c.diagnostico, c.idConsulta
+               c.fechaConsulta, c.idConsulta
         FROM Consulta c
         JOIN c.paciente p
         WHERE c.profesional.idProfesional = :idDoc
