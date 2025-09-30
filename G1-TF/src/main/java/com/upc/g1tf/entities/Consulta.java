@@ -31,8 +31,6 @@ public class Consulta {
     private CentroMedico centroMedico;
 
     private LocalDate fechaConsulta;
-    private String diagnostico;
-    private String tratamiento;
 
     @OneToMany(mappedBy = "consulta", cascade = CascadeType.ALL)
     private java.util.List<Diagnostico> diagnosticos;
@@ -40,3 +38,4 @@ public class Consulta {
     @OneToMany(mappedBy = "consulta", cascade = CascadeType.ALL)
     private java.util.List<Receta> recetas;
 }
+
