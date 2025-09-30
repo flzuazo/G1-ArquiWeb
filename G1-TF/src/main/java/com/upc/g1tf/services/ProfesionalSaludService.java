@@ -3,16 +3,22 @@ package com.upc.g1tf.services;
 import com.upc.g1tf.dtos.ProfesionalSaludDTO;
 import com.upc.g1tf.entities.ProfesionalSalud;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
+import com.upc.g1tf.repositories.ConsultaRepository;
 import com.upc.g1tf.repositories.ProfesionalSaludRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfesionalSaludService implements IProfesionalSaludService {
     @Autowired
     private ProfesionalSaludRepository profesionalSaludRepository;
+    @Autowired
+    private ConsultaRepository consultaRepository;
     @Autowired
     private ModelMapper modelMapper;
     @Override
@@ -42,6 +48,16 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
 
         // Convertir Entidad a DTO
         return modelMapper.map(nuevoProfesional, ProfesionalSaludDTO.class);
+    }
+
+    @Override
+    public List<Object[]> listarPacientesAtendidos(Integer idProfesional) {
+        List<Object[]> data = consultaRepository.findPacientesAtendidos(idProfesional);
+        if (data.isEmpty()) {
+            // Cumple el escenario "Error: doctor sin consultas."
+            throw new EntityNotFoundException("El doctor no tiene consultas registradas.");
+        }
+        return data;
     }
 
 
