@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="actualización en HU12">
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/ReporteCentroDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/interfaces/IReporteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/ReporteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteUpdateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteUpdateDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Consulta.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Consulta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Paciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Paciente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ProfesionalSaludController.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ProfesionalSaludController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -99,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759187894053</updated>
       <workItem from="1759187897955" duration="534000" />
-      <workItem from="1759201588150" duration="3413000" />
+      <workItem from="1759201588150" duration="7499000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -141,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759204246217</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="actualización en HU12">
+      <option name="closed" value="true" />
+      <created>1759205193798</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759205193798</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
