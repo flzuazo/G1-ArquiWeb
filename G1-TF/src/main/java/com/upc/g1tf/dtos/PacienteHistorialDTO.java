@@ -15,13 +15,5 @@ import java.util.List;
 public class PacienteHistorialDTO {
     private String alergias;
 
-    private List<ConsultaDTO> consultas;
-
-    @Getter
-    @Setter
-    public static class ConsultaHistorialDTO {
-        private LocalDate fechaConsulta;
-        private String diagnostico;
-        private String tratamiento;
-    }
+    private String antecedentes;
 }

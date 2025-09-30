@@ -23,4 +23,5 @@ public class PacienteDTO {
     private String email;
     private String tipoSangre;
     private String alergias;
+    private String antecedentes;
 }

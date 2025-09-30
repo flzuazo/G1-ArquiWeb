@@ -19,4 +19,6 @@ public class PacienteUpdateDTO {
 
     @Email(message = "Formato de correo inválido")
     private String email;
+
+    private String antecedentes;
 }

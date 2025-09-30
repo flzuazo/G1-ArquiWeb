@@ -37,7 +37,7 @@ public class PacienteService implements IPacienteService {
     public PacienteDTO registrarPaciente(PacienteDTO pacienteDTO) {
         if (pacienteDTO.getNombres() == null || pacienteDTO.getApellidos() == null ||
                 pacienteDTO.getDni() == null || pacienteDTO.getFechaNacimiento() == null ||
-                pacienteDTO.getSexo() == null) {
+                pacienteDTO.getSexo() == null|| pacienteDTO.getAntecedentes()==null) {
             throw new ValidationException("Todos los campos obligatorios deben estar completos.");
         }
 
@@ -74,12 +74,15 @@ public class PacienteService implements IPacienteService {
         if (updateDTO.getEmail() != null) {
             paciente.setEmail(updateDTO.getEmail());
         }
+        if (updateDTO.getAntecedentes() != null) {
+            paciente.setAntecedentes(updateDTO.getAntecedentes());
+        }
         Paciente actualizado = pacienteRepository.save(paciente);
 
         return modelMapper.map(actualizado, PacienteDTO.class);
     }
 
-    // ===== HU12 – Actualizar historial (alergias + consultas) =====
+    // ===== HU12 – Actualizar historial (alergias + antecedentes) =====
     @Override
     public PacienteDTO actualizarHistorial(Integer idPaciente, PacienteHistorialDTO pacientehistorialDTO) {
         Paciente paciente = pacienteRepository.findById(idPaciente)
@@ -89,38 +92,8 @@ public class PacienteService implements IPacienteService {
             paciente.setAlergias(pacientehistorialDTO.getAlergias());
         }
 
-        if (pacientehistorialDTO.getConsultas() != null && !pacientehistorialDTO.getConsultas().isEmpty()) {
-            if (paciente.getConsultas() == null) {
-                paciente.setConsultas(new java.util.ArrayList<>());
-            }
-
-            pacientehistorialDTO.getConsultas().forEach(cDto -> {
-                // validar obligatorios
-                if (cDto.getIdCentroMedico() == null) {
-                    throw new ValidationException("El campo idCentroMedico es obligatorio.");
-                }
-                if (cDto.getIdProfesional() == null) {
-                    throw new ValidationException("El campo idProfesional es obligatorio.");
-                }
-
-                // validar existencia
-                CentroMedico centro = centromedicoRepository.findById(cDto.getIdCentroMedico())
-                        .orElseThrow(() -> new EntityNotFoundException("Centro médico no encontrado con ID: " + cDto.getIdCentroMedico()));
-
-                ProfesionalSalud profesional = profesionalsaludRepository.findById(cDto.getIdProfesional())
-                        .orElseThrow(() -> new EntityNotFoundException("Profesional no encontrado con ID: " + cDto.getIdProfesional()));
-
-                // crear consulta
-                Consulta consulta = new Consulta();
-                consulta.setPaciente(paciente);
-                consulta.setCentroMedico(centro);
-                consulta.setProfesional(profesional);
-                consulta.setFechaConsulta(cDto.getFechaConsulta());
-                //consulta.setDiagnostico(cDto.getDiagnostico());
-                //consulta.setTratamiento(cDto.getTratamiento());
-
-                paciente.getConsultas().add(consulta);
-            });
+        if (paciente.getAntecedentes() == null) {
+            paciente.setAntecedentes(pacientehistorialDTO.getAntecedentes());
         }
 
         Paciente actualizado = pacienteRepository.save(paciente);

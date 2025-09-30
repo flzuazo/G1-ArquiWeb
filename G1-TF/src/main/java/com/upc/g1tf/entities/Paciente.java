@@ -35,6 +35,8 @@ public class Paciente {
     @Column(length = 500)
     private String alergias;
 
+    private String antecedentes;
+
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Consulta> consultas = new java.util.ArrayList<>();
 

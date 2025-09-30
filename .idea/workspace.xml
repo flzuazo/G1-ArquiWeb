@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="hu08">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Problema de registro de consultas solucionado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/ConsultaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/ConsultaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/ConsultaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteHistorialDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteHistorialDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/PacienteUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Paciente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/PacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/PacienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/PacienteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/ConsultaDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/ConsultaDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IProfesionalSaludService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IProfesionalSaludService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ConsultaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ConsultaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ProfesionalSaludService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ProfesionalSaludService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +33,12 @@
     &quot;assignee&quot;: &quot;stephano-2002&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/flzuazo/G1-ArquiWeb.git&quot;,
-    &quot;accountId&quot;: &quot;78fc1889-5d1e-46c5-ba38-961746ad9df4&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/flzuazo/G1-ArquiWeb.git",
+    "accountId": "b46398d7-fa27-419d-98c6-b284b932e26f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -91,8 +83,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.28774.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.28774.11" />
       </set>
     </attachedChunks>
   </component>
@@ -104,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759187894053</updated>
       <workItem from="1759187897955" duration="534000" />
+      <workItem from="1759201588150" duration="1804000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -113,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759188204085</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Problema de registro de consultas solucionado">
+      <option name="closed" value="true" />
+      <created>1759195710182</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759195710182</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hu08" />
-    <option name="LAST_COMMIT_MESSAGE" value="hu08" />
+    <MESSAGE value="Problema de registro de consultas solucionado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problema de registro de consultas solucionado" />
   </component>
 </project>
