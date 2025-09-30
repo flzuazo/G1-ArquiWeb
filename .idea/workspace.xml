@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Problema de registro de consultas solucionado">
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="actualización en HU12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteUpdateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteUpdateDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Consulta.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Consulta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Paciente.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Paciente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,9 @@
     "accountId": "b46398d7-fa27-419d-98c6-b284b932e26f"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -93,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759187894053</updated>
       <workItem from="1759187897955" duration="534000" />
-      <workItem from="1759201588150" duration="2487000" />
+      <workItem from="1759201588150" duration="3413000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -119,7 +125,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759203418421</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="actualización en HU12">
+      <option name="closed" value="true" />
+      <created>1759204194467</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759204194467</updated>
+    </task>
+    <task id="LOCAL-00005" summary="actualización en HU12">
+      <option name="closed" value="true" />
+      <created>1759204246217</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759204246217</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hu08" />
     <MESSAGE value="Problema de registro de consultas solucionado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Problema de registro de consultas solucionado" />
+    <MESSAGE value="actualización en HU12" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualización en HU12" />
   </component>
 </project>
