@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="actualización en HU12">
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/ReporteCentroDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/interfaces/IReporteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/ReporteService.java" afterDir="false" />
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Avance 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ProfesionalSaludController.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ProfesionalSaludController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/MedicamentoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/MedicamentoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Medicamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Medicamento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +31,12 @@
     &quot;assignee&quot;: &quot;stephano-2002&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/flzuazo/G1-ArquiWeb.git",
-    "accountId": "b46398d7-fa27-419d-98c6-b284b932e26f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/flzuazo/G1-ArquiWeb.git&quot;,
+    &quot;accountId&quot;: &quot;b46398d7-fa27-419d-98c6-b284b932e26f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -55,29 +48,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.G1TfApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.G1TfApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="G1TfApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -104,7 +97,9 @@
       <option name="presentableId" value="Default" />
       <updated>1759187894053</updated>
       <workItem from="1759187897955" duration="534000" />
-      <workItem from="1759201588150" duration="7499000" />
+      <workItem from="1759201588150" duration="8789000" />
+      <workItem from="1759234674522" duration="3578000" />
+      <workItem from="1759320666696" duration="4061000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -154,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759205193798</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Avance 2">
+      <option name="closed" value="true" />
+      <created>1759210855599</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759210855599</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +167,7 @@
     <MESSAGE value="hu08" />
     <MESSAGE value="Problema de registro de consultas solucionado" />
     <MESSAGE value="actualización en HU12" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualización en HU12" />
+    <MESSAGE value="Avance 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avance 2" />
   </component>
 </project>
