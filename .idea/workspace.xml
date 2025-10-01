@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Avance 2" />
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Actualización clase Medicamento" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +95,7 @@
       <workItem from="1759187897955" duration="534000" />
       <workItem from="1759201588150" duration="8789000" />
       <workItem from="1759234674522" duration="3578000" />
-      <workItem from="1759320666696" duration="4694000" />
+      <workItem from="1759320666696" duration="4858000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -161,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759329525183</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Actualización clase Medicamento">
+      <option name="closed" value="true" />
+      <created>1759329689760</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759329689760</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +180,7 @@
     <MESSAGE value="Problema de registro de consultas solucionado" />
     <MESSAGE value="actualización en HU12" />
     <MESSAGE value="Avance 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avance 2" />
+    <MESSAGE value="Actualización clase Medicamento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualización clase Medicamento" />
   </component>
 </project>
