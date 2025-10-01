@@ -1,6 +1,7 @@
 package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.ReporteCentroDTO;
+import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.interfaces.IReporteService;
 import com.upc.g1tf.repositories.ConsultaRepository;
 import org.springframework.stereotype.Service;
@@ -21,4 +22,10 @@ public class ReporteService implements IReporteService {
     public List<ReporteCentroDTO> generarReporte(LocalDate fechaInicio, LocalDate fechaFin) {
         return consultaRepository.generarReporte(fechaInicio, fechaFin);
     }
+
+    @Override
+    public List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(LocalDate inicio, LocalDate fin) {
+        return consultaRepository.obtenerReportePorEspecialidad(inicio, fin);
+    }
+
 }
