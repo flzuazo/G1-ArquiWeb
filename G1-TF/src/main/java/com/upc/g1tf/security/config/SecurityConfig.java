@@ -1,4 +1,4 @@
-package com.upc.products.security.config;
+package com.upc.g1tf.security.config;
 
 import com.upc.g1tf.security.filters.JwtRequestFilter;
 import com.upc.g1tf.security.services.CustomUserDetailsService;

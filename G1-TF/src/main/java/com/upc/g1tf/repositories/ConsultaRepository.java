@@ -41,8 +41,8 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
                                           @Param("fechaFin") LocalDate fechaFin);
 
     @Query("SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(p.especialidad, COUNT(DISTINCT c.paciente.id), COUNT(c)) " +
-            "FROM Consulta c JOIN c.profesionalSalud p " +
-            "WHERE c.fecha BETWEEN :inicio AND :fin " +
+            "FROM Consulta c JOIN c.profesional p " +
+            "WHERE c.fechaConsulta BETWEEN :inicio AND :fin " +
             "GROUP BY p.especialidad")
     List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(
             @Param("inicio") LocalDate inicio,

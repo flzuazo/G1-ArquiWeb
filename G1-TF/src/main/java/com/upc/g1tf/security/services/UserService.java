@@ -1,7 +1,7 @@
 package com.upc.g1tf.security.services;
 
 import com.upc.g1tf.security.entities.Role;
-import com.upc.g1tf.security.entities.Usuario;
+import com.upc.g1tf.security.entities.User;
 import com.upc.g1tf.security.repositories.RoleRepository;
 import com.upc.g1tf.security.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class UserService {
     private RoleRepository roleRepository;
 
     @Transactional
-    public void save(Usuario user) {
+    public void save(User user) {
         userRepository.save(user);
     }
 
@@ -24,9 +24,9 @@ public class UserService {
     public void grabar(Role role) {
         roleRepository.save(role);
     }
-    public Integer insertUserRol(Long user_id, Long rol_id) {
+    public Integer insertUserRol(Integer user_id, Integer rol_id) {
         Integer result = 0;
-        userRepository.insertUserRol(user_id, rol_id);
+        userRepository.insertUserRole(user_id, rol_id);
         return 1;
     }
 

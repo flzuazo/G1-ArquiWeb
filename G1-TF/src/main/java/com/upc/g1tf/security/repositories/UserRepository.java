@@ -1,7 +1,6 @@
 package com.upc.g1tf.security.repositories;
 
-import com.upc.g1tf.security.entities.Usuario;
-import com.upc.g1tf.security.entities.Usuario;
+import com.upc.g1tf.security.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<Usuario, Integer> {
-    Optional<Usuario> findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByUsername(String username);
     //modificacion
     @Transactional
     @Modifying

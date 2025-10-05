@@ -1,57 +1,23 @@
 package com.upc.g1tf.security.dtos;
 
-import com.upc.g1tf.security.dtos.AuthRequestDTO;
-import com.upc.g1tf.security.dtos.AuthResponseDTO;
-import com.upc.g1tf.security.services.CustomUserDetailsService;
-import com.upc.g1tf.security.util.JwtUtil;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-
-//@CrossOrigin(origins = "${ip.frontend}")
-@CrossOrigin(origins = "${ip.frontend}", allowCredentials = "true", exposedHeaders = "Authorization") //para cloud
-//@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "Authorization")
-@RestController
-@RequestMapping("/api")
 public class AuthRequestDTO {
+    private String username;
+    private String password;
+    // getters and setters
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtUtil jwtUtil;
-    private final CustomUserDetailsService userDetailsService;
-
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, CustomUserDetailsService userDetailsService) {
-        this.authenticationManager = authenticationManager;
-        this.jwtUtil = jwtUtil;
-        this.userDetailsService = userDetailsService;
+    public String getUsername() {
+        return username;
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<AuthResponseDTO> createAuthenticationToken(@RequestBody AuthRequestDTO authRequest) throws Exception {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-        );
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
-        final String token = jwtUtil.generateToken(userDetails);
+    public String getPassword() {
+        return password;
+    }
 
-        Set<String> roles = userDetails.getAuthorities()
-                .stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toSet());
-
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Authorization", token);
-        AuthResponseDTO authResponseDTO = new AuthResponseDTO();
-        authResponseDTO.setRoles(roles);
-        authResponseDTO.setJwt(token);
-        return ResponseEntity.ok().headers(responseHeaders).body(authResponseDTO);
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
