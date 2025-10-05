@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.services;
 
 import com.upc.g1tf.security.entities.Usuario;
@@ -10,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.stream.Collectors;*/
 /**
  * Busca al usuario en la BD por su username.
  * Si no existe → lanza excepción.
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
  * que generalmente es el nombre de usuario (username).
  * Es usado por JwtRequestFilter
  */
+/*
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -48,3 +50,4 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .build();
     }
 }
+*/

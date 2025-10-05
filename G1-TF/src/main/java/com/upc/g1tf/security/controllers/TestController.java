@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.controllers;
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,3 +26,4 @@ public class TestController {
     }
 }
 
+*/

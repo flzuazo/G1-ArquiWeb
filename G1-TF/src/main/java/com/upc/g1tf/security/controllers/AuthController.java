@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.controllers;
 
 import com.upc.g1tf.security.dtos.AuthRequestDTO;
@@ -13,14 +14,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-//@CrossOrigin(origins = "${ip.frontend}")
-@CrossOrigin(origins = "${ip.frontend}", allowCredentials = "true", exposedHeaders = "Authorization") //para cloud
-//@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders = "Authorization")
+@CrossOrigin(origins = "${ip.frontend}", allowCredentials = "true", exposedHeaders = "Authorization")
 @RestController
 @RequestMapping("/api")
 public class AuthController {
@@ -36,7 +33,7 @@ public class AuthController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthResponseDTO> createAuthenticationToken(@RequestBody AuthRequestDTO authRequest) throws Exception {
+    public ResponseEntity<AuthResponseDTO> createAuthenticationToken(@RequestBody AuthRequestDTO authRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
         );
@@ -44,17 +41,19 @@ public class AuthController {
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
         final String token = jwtUtil.generateToken(userDetails);
 
-        Set<String> roles = userDetails.getAuthorities()
-                .stream()
+        Set<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toSet());
 
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Authorization", token);
-        AuthResponseDTO authResponseDTO = new AuthResponseDTO();
-        authResponseDTO.setRoles(roles);
-        authResponseDTO.setJwt(token);
-        return ResponseEntity.ok().headers(responseHeaders).body(authResponseDTO);
-    }
 
+        AuthResponseDTO response = new AuthResponseDTO();
+        response.setJwt(token);
+        response.setRoles(roles);
+
+        return ResponseEntity.ok().headers(responseHeaders).body(response);
+    }
 }
+*/
+

@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.entities;
 
 import jakarta.persistence.*;
@@ -19,3 +20,4 @@ public class Role {
     private String name;
 }
 
+*/

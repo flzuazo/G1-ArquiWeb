@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.dtos;
 
 import java.util.Set;
@@ -6,4 +7,4 @@ import java.util.Set;
 public class AuthResponseDTO {
     private String jwt;
     private Set<String> roles;
-}
+}*/

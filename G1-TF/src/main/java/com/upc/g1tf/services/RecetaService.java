@@ -1,4 +1,4 @@
-package com.upc.g1tf.service;
+package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.RecetaDTO;
 import com.upc.g1tf.dtos.RecetaMedicamentoDTO;
@@ -118,7 +118,6 @@ public class RecetaService implements IRecetaService {
 
         return toDTO(receta);
     }
-
 
 
 

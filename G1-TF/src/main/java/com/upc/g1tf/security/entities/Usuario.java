@@ -1,3 +1,4 @@
+/*
 package com.upc.g1tf.security.entities;
 
 import com.upc.g1tf.entities.Paciente;
@@ -36,4 +37,4 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
-}
+}*/
