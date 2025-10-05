@@ -20,7 +20,7 @@ public class ReporteController {
     public ReporteController(ReporteService reporteService) {
         this.reporteService = reporteService;
     }
-
+    //HU09 : Reporte por centro médico
     @GetMapping("/centros")
     public List<ReporteCentroDTO> generarReporte(
             @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
