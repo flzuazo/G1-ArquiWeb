@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface IReporteService {
     List<ReporteCentroDTO> generarReporte(LocalDate fechaInicio, LocalDate fechaFin);
-
 }
