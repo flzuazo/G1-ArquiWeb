@@ -1,8 +1,6 @@
-/*
+
 package com.upc.g1tf.security.entities;
 
-import com.upc.g1tf.entities.Paciente;
-import com.upc.g1tf.entities.ProfesionalSalud;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "users")
 @Data
-public class Usuario {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
@@ -37,4 +35,4 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
-}*/
+}

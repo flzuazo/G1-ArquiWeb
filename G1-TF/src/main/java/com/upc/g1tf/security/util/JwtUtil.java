@@ -1,4 +1,4 @@
-/*
+
 package com.upc.g1tf.security.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -48,7 +48,7 @@ public class JwtUtil {
     private String createToken(Map<String, Object> claims, String subject) {
         //claims.put("roles", "ROLE_USER,ROLE_ADMIN"); // Aquí se puede agregar roles u otra info al token
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 20)) // 20 min
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30)) // 30 min
                 .signWith(SignatureAlgorithm.HS512, secretKey).compact();
     }
 
@@ -56,4 +56,4 @@ public class JwtUtil {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
-}*/
+}

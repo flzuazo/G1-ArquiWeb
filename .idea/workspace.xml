@@ -4,75 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Actualización clase Medicamento">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/import.sql" afterDir="false" />
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Avance Spring Security">
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/filters/JwtRequestFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/G1TfApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/config/ModelMapperConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/CentroMedicoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ConsultaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/PacienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ProfesionalSaludController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/RecetaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/controllers/ReporteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/CentroMedicoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/ConsultaDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/DiagnosticoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/MedicamentoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteAtendidoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteHistorialDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/PacienteUpdateDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/ProfesionalSaludDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/RecetaDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/RecetaMedicamentoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/ReporteCentroDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/UsuarioDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/CentroMedico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Consulta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Diagnostico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Medicamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Paciente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/ProfesionalSalud.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Receta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/RecetaMedicamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/RecetaMedicamentoId.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/entities/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/ICentroMedicoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IConsultaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IMedicamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IPacienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IProfesionalSaludService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IRecetaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/interfaces/IReporteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/CentroMedicoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ConsultaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/MedicamentoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/PacienteRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/ProfesionalSaludRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/RecetaMedicamentoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/repositories/RecetaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/service/RecetaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/CentroMedicoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ConsultaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/PacienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ProfesionalSaludService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/services/ReporteService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ConsultaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ConsultaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/RecetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/RecetaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -122,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.G1TfApplication.executor": "Debug",
+    "Spring Boot.G1TfApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
@@ -167,7 +118,8 @@
       <workItem from="1759320666696" duration="4858000" />
       <workItem from="1759329718818" duration="230000" />
       <workItem from="1759332129895" duration="786000" />
-      <workItem from="1759649331871" duration="2546000" />
+      <workItem from="1759649331871" duration="2924000" />
+      <workItem from="1759683665170" duration="5628000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -249,7 +201,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759329872959</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Actualización clase Medicamento">
+      <option name="closed" value="true" />
+      <created>1759652171318</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759652171318</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Avance Spring Security">
+      <option name="closed" value="true" />
+      <created>1759652259563</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759652259563</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +229,7 @@
     <MESSAGE value="actualización en HU12" />
     <MESSAGE value="Avance 2" />
     <MESSAGE value="Actualización clase Medicamento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualización clase Medicamento" />
+    <MESSAGE value="Avance Spring Security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avance Spring Security" />
   </component>
 </project>

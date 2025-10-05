@@ -1,7 +1,7 @@
-/*
+
 package com.upc.g1tf.security.services;
 
-import com.upc.g1tf.security.entities.Usuario;
+import com.upc.g1tf.security.entities.User;
 import com.upc.g1tf.security.repositories.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
-import java.util.stream.Collectors;*/
+import java.util.stream.Collectors;
 /**
  * Busca al usuario en la BD por su username.
  * Si no existe → lanza excepción.
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;*/
  * que generalmente es el nombre de usuario (username).
  * Es usado por JwtRequestFilter
  */
-/*
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -36,7 +36,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario user = userRepository.findByUsername(username)
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         Set<GrantedAuthority> authorities = user.getRoles().stream()
@@ -50,4 +50,3 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .build();
     }
 }
-*/
