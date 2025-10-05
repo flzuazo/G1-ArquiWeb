@@ -5,24 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Avance Spring Security">
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/filters/JwtRequestFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/CentroMedicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ConsultaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ConsultaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/PacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ProfesionalSaludController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/RecetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/RecetaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/ReporteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/ConsultaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/dtos/AuthRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/UsuarioDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/UsuarioDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/repositories/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/util/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/util/JwtUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +69,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.G1TfApplication.executor": "Run",
+    "Spring Boot.G1TfApplication.executor": "Debug",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
@@ -119,7 +115,7 @@
       <workItem from="1759329718818" duration="230000" />
       <workItem from="1759332129895" duration="786000" />
       <workItem from="1759649331871" duration="2924000" />
-      <workItem from="1759683665170" duration="5628000" />
+      <workItem from="1759683665170" duration="16235000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -217,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759652259563</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Avance Spring Security">
+      <option name="closed" value="true" />
+      <created>1759690424377</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1759690424378</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
