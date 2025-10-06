@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ProfesionalSaludController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo_profesionalsalud")
     public ResponseEntity<ProfesionalSaludDTO> registrarProfesional(@Valid @RequestBody ProfesionalSaludDTO profesionalSaludDTO) {
         ProfesionalSaludDTO nuevoProfesional = profesionalSaludService.registrarProfesional(profesionalSaludDTO);
@@ -27,6 +29,7 @@ public class ProfesionalSaludController {
     }
 
     // HU08 – Consultar Pacientes Atendidos
+    @PreAuthorize("hasAnyRole('ADMIN','PROFESIONALSALUD')")
     @GetMapping("/doctor/{id}/pacientes")
     // @PreAuthorize("hasAnyRole('ADMIN','DOCTOR')")
     public ResponseEntity<List<Object[]>> listarPacientesAtendidos(@PathVariable Integer id) {

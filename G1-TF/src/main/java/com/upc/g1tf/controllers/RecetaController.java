@@ -4,6 +4,7 @@ import com.upc.g1tf.dtos.RecetaDTO;
 import com.upc.g1tf.interfaces.IRecetaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class RecetaController {
     private IRecetaService recetaService;
 
     // ---------- Insertar receta ----------
+    @PreAuthorize("hasRole('PROFESIONALSALUD')")
     @PostMapping("/nueva_receta")
     public ResponseEntity<RecetaDTO> insertarReceta(@RequestBody RecetaDTO recetaDTO) {
         RecetaDTO nuevaReceta = recetaService.insertarReceta(recetaDTO);
@@ -25,6 +27,7 @@ public class RecetaController {
     }
 
     // ---------- Listar todas las recetas ----------
+    @PreAuthorize("hasAnyRole('PROFESIONALSALUD', 'ADMIN')")
     @GetMapping("/recetas")
     public ResponseEntity<List<RecetaDTO>> listarRecetas() {
         List<RecetaDTO> recetas = recetaService.listarRecetas();
@@ -32,6 +35,7 @@ public class RecetaController {
     }
 
     // ---------- Buscar receta por ID ----------
+    @PreAuthorize("hasAnyRole('PROFESIONALSALUD', 'ADMIN')")
     @GetMapping("/buscar_receta/{id}")
     public ResponseEntity<RecetaDTO> buscarRecetaPorId(@PathVariable Integer id) {
         RecetaDTO receta = recetaService.buscarRecetaPorId(id);
@@ -39,6 +43,7 @@ public class RecetaController {
     }
 
     // ---------- Modificar receta ----------
+    @PreAuthorize("hasAnyRole('PROFESIONALSALUD', 'ADMIN')")
     @PutMapping("/modificar_receta")
     public ResponseEntity<RecetaDTO> modificarReceta(@RequestBody RecetaDTO recetaDTO) {
         RecetaDTO recetaModificada = recetaService.modificarReceta(recetaDTO);
@@ -46,6 +51,7 @@ public class RecetaController {
     }
 
     // ---------- Eliminar receta ----------
+    @PreAuthorize("hasAnyRole('PROFESIONALSALUD', 'ADMIN')")
     @DeleteMapping("/eliminar_receta/{id}")
     public ResponseEntity<Void> eliminarReceta(@PathVariable Integer id) {
         recetaService.eliminarReceta(id);

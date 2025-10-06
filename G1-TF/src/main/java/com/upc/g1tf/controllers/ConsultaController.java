@@ -17,13 +17,14 @@ public class ConsultaController {
     @Autowired
     private IConsultaService consultaService;
 
+    @PreAuthorize("hasRole('PROFESIONALSALUD')")
     @PostMapping("/nueva_consulta")
     public ConsultaDTO insertarConsulta(@RequestBody ConsultaDTO consultaDTO) {
         return consultaService.insertarConsulta(consultaDTO);
     }
 
-    @GetMapping("/ver_consulta")
     @PreAuthorize("hasAnyRole('ADMIN', 'PROFESIONALSALUD')")
+    @GetMapping("/lsitar_consultas")
     public List<ConsultaDTO> listarConsultas() {
         return consultaService.listarConsultas();
     }
@@ -46,7 +47,6 @@ public class ConsultaController {
         consultaService.eliminarConsulta(id);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'PROFESIONALSALUD')")
     @GetMapping("/historial_paciente/{pacienteId}")
     public List<ConsultaDTO> listarHistorialPorPaciente(@PathVariable Integer pacienteId) {
         return consultaService.listarHistorialPorPaciente(pacienteId);

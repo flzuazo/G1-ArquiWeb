@@ -17,10 +17,6 @@ public class MedicamentoController {
     @Autowired
     private IMedicamentoService medicamentoService;
 
-    /**
-     * HU14: Endpoint para registrar un nuevo medicamento.
-     * Solo accesible para usuarios con rol 'ADMIN'.
-     */
     @PostMapping("/medicamentos")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<MedicamentoDTO> registrarMedicamento(@Valid @RequestBody MedicamentoDTO medicamentoDTO) {
