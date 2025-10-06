@@ -1,3 +1,4 @@
+
 package com.upc.g1tf.security.entities;
 
 import jakarta.persistence.*;

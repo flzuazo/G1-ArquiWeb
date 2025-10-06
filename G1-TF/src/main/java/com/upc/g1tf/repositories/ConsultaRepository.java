@@ -6,15 +6,17 @@ import com.upc.g1tf.entities.Consulta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
+
     List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 
+    // HU08 – Pacientes atendidos por doctor
     @Query("""
         SELECT p.idPaciente, p.nombres, p.apellidos, p.dni,
                c.fechaConsulta, c.idConsulta
@@ -31,21 +33,35 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
         """)
     List<Object[]> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
 
-    @Query("SELECT new com.upc.g1tf.dtos.ReporteCentroDTO(c.nombreCentro, COUNT(cs.idConsulta), COUNT(DISTINCT p.idProfesional)) " +
-            "FROM Consulta cs " +
-            "JOIN cs.centroMedico c " +
-            "JOIN cs.profesional p " +
-            "WHERE cs.fechaConsulta BETWEEN :fechaInicio AND :fechaFin " +
-            "GROUP BY c.nombreCentro")
+    // Reporte por centro médico
+    @Query("""
+        SELECT new com.upc.g1tf.dtos.ReporteCentroDTO(
+            cMed.nombreCentro,
+            COUNT(cs.idConsulta),
+            COUNT(DISTINCT p.idProfesional)
+        )
+        FROM Consulta cs
+        JOIN cs.centroMedico cMed
+        JOIN cs.profesional p
+        WHERE cs.fechaConsulta BETWEEN :fechaInicio AND :fechaFin
+        GROUP BY cMed.nombreCentro
+        """)
     List<ReporteCentroDTO> generarReporte(@Param("fechaInicio") LocalDate fechaInicio,
                                           @Param("fechaFin") LocalDate fechaFin);
 
-    @Query("SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(p.especialidad, COUNT(DISTINCT c.paciente.id), COUNT(c)) " +
-            "FROM Consulta c JOIN c.profesional p " +
-            "WHERE c.fechaConsulta BETWEEN :inicio AND :fin " +
-            "GROUP BY p.especialidad")
+    // Reporte por especialidad
+    @Query("""
+        SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(
+            p.especialidad,
+            COUNT(DISTINCT c.paciente.idPaciente),
+            COUNT(c)
+        )
+        FROM Consulta c
+        JOIN c.profesional p
+        WHERE c.fechaConsulta BETWEEN :inicio AND :fin
+        GROUP BY p.especialidad
+        """)
     List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(
             @Param("inicio") LocalDate inicio,
             @Param("fin") LocalDate fin);
-
 }

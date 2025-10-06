@@ -1,3 +1,4 @@
+
 package com.upc.g1tf.security.services;
 
 import com.upc.g1tf.security.entities.User;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
  * que generalmente es el nombre de usuario (username).
  * Es usado por JwtRequestFilter
  */
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
