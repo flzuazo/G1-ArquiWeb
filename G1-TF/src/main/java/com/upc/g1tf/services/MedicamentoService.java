@@ -39,24 +39,25 @@ public class MedicamentoService implements IMedicamentoService {
         Medicamento medicamentoGuardado = medicamentoRepository.save(medicamento);
         return modelMapper.map(medicamentoGuardado, MedicamentoDTO.class);
     }
+    /**
+     * HU15: Devuelve una lista de todos los medicamentos del catálogo.
+     * Utiliza el metodo findAll() del repositorio y mapea cada entidad a su DTO.
+     */
     @Override
     public List<MedicamentoDTO> listarMedicamentos() {
-        return List.of();
+        return medicamentoRepository.findAll().stream()
+                .map(medicamento -> modelMapper.map(medicamento, MedicamentoDTO.class))
+                .collect(Collectors.toList());
     }
+
+    // --- MÉTODOS RESTANTES (SIN IMPLEMENTAR) ---
+    @Override
+    public MedicamentoDTO buscarMedicamentoPorId(Long id) { return null; }
 
     @Override
-    public MedicamentoDTO buscarMedicamentoPorId(Long id) {
-        return null;
-    }
+    public MedicamentoDTO modificarMedicamento(MedicamentoDTO medicamentoDTO) { return null; }
 
     @Override
-    public MedicamentoDTO modificarMedicamento(MedicamentoDTO medicamentoDTO) {
-        return null;
-    }
-
-    @Override
-    public void eliminarMedicamento(Long id) {
-
-    }
+    public void eliminarMedicamento(Long id) { }
 
 }
