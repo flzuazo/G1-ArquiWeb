@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Avance Spring Security">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/dtos/UsuarioDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/security/util/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/resources/import.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/dtos/UsuarioDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/Role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/util/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/com/upc/g1tf/security/util/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/target/classes/import.sql" afterDir="false" />
-    </list>
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Spring Security" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +99,7 @@
       <workItem from="1759329718818" duration="230000" />
       <workItem from="1759332129895" duration="786000" />
       <workItem from="1759649331871" duration="2924000" />
-      <workItem from="1759683665170" duration="16235000" />
+      <workItem from="1759683665170" duration="17430000" />
     </task>
     <task id="LOCAL-00001" summary="hu08">
       <option name="closed" value="true" />
@@ -221,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759690424378</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Spring Security">
+      <option name="closed" value="true" />
+      <created>1759705737200</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1759705737200</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +226,7 @@
     <MESSAGE value="Avance 2" />
     <MESSAGE value="Actualización clase Medicamento" />
     <MESSAGE value="Avance Spring Security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avance Spring Security" />
+    <MESSAGE value="Spring Security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spring Security" />
   </component>
 </project>

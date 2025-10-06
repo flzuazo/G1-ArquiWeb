@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -24,13 +25,14 @@ public class ReporteController {
         this.reporteService = reporteService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/centros")
     public List<ReporteCentroDTO> generarReporte(
             @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
             @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
         return reporteService.generarReporte(fechaInicio, fechaFin);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/especialidades")
     public ResponseEntity<?> reportePorEspecialidad(
             @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,

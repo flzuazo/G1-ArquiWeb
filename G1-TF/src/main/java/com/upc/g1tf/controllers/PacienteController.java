@@ -37,7 +37,7 @@ public class PacienteController {
     @PreAuthorize("hasAnyRole('ADMIN','DOCTOR')")
     public ResponseEntity<PacienteDTO> actualizarHistorial(
             @PathVariable Integer id,
-            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este!
+            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
         return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
     }
 
