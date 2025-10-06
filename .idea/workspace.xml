@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Spring Security" />
+    <list default="true" id="67f64431-5f71-43d3-97ce-eeaa34560546" name="Changes" comment="Spring Security">
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/MedicamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/controllers/MedicamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/MedicamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/repositories/MedicamentoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/MedicamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/G1-TF/src/main/java/com/upc/g1tf/services/MedicamentoService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.G1TfApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Fabian",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
