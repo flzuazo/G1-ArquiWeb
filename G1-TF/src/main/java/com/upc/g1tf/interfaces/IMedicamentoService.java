@@ -1,6 +1,11 @@
 package com.upc.g1tf.interfaces;
 
 import com.upc.g1tf.dtos.MedicamentoDTO;
+import com.upc.g1tf.entities.CentroMedico;
+import com.upc.g1tf.entities.Diagnostico;
+import com.upc.g1tf.entities.Paciente;
+import com.upc.g1tf.entities.Receta;
+
 import java.util.List;
 
 public interface IMedicamentoService {

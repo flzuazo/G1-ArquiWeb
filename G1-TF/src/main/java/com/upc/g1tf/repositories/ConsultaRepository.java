@@ -14,6 +14,20 @@ import java.util.List;
 @Repository
 public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
+    // 🔹 HU05 – Historial médico completo del paciente
+    @Query("""
+        SELECT DISTINCT c FROM Consulta c
+        LEFT JOIN FETCH c.diagnosticos d
+        LEFT JOIN FETCH c.recetas r
+        LEFT JOIN FETCH r.recetaMedicamentos rm
+        LEFT JOIN FETCH rm.medicamento m
+        LEFT JOIN FETCH c.profesional p
+        LEFT JOIN FETCH c.centroMedico cm
+        WHERE c.paciente.idPaciente = :idPaciente
+        ORDER BY c.fechaConsulta DESC
+    """)
+    List<Consulta> findHistorialByPacienteIdWithAllData(@Param("idPaciente") Integer idPaciente);
+
     List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 
     // HU08 – Pacientes atendidos por doctor
