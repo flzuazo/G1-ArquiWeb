@@ -12,6 +12,5 @@ import lombok.Setter;
 public class MedicamentoDTO {
     private Integer idMedicamento;
     private String nombre;
-    private String descripcion;
     private String dosis;
 }

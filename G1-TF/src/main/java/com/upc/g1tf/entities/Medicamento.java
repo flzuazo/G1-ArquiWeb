@@ -20,6 +20,5 @@ public class Medicamento {
     private Integer idMedicamento;
 
     private String nombre;
-    private String descripcion;
     private String dosis;
 }
