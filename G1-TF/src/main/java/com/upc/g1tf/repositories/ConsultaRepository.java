@@ -1,5 +1,6 @@
 package com.upc.g1tf.repositories;
 
+import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ReporteCentroDTO;
 import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.entities.Consulta;
@@ -30,22 +31,31 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
     List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 
-    // HU08 – Pacientes atendidos por doctor
+    // 🔹 HU08 – Pacientes atendidos por doctor (versión mejorada)
     @Query("""
-        SELECT p.idPaciente, p.nombres, p.apellidos, p.dni,
-               c.fechaConsulta, c.idConsulta
-        FROM Consulta c
-        JOIN c.paciente p
-        WHERE c.profesional.idProfesional = :idDoc
-          AND c.fechaConsulta = (
-              SELECT MAX(c2.fechaConsulta)
-              FROM Consulta c2
-              WHERE c2.paciente.idPaciente = p.idPaciente
-                AND c2.profesional.idProfesional = :idDoc
-          )
-        ORDER BY p.apellidos, p.nombres
-        """)
-    List<Object[]> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
+    SELECT new com.upc.g1tf.dtos.PacienteAtendidoDTO(
+        p.idPaciente,
+        p.nombres,
+        p.apellidos,
+        p.dni,
+        c.fechaConsulta,
+        d.descripcion,
+        c.idConsulta
+    )
+    FROM Consulta c
+    JOIN c.paciente p
+    LEFT JOIN c.diagnosticos d
+    WHERE c.profesional.idProfesional = :idDoc
+      AND c.fechaConsulta = (
+          SELECT MAX(c2.fechaConsulta)
+          FROM Consulta c2
+          WHERE c2.paciente.idPaciente = p.idPaciente
+            AND c2.profesional.idProfesional = :idDoc
+      )
+    ORDER BY p.apellidos, p.nombres
+""")
+    List<PacienteAtendidoDTO> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
+
 
     // Reporte por centro médico
     @Query("""
