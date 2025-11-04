@@ -7,7 +7,6 @@
 /dataSources/
 /dataSources.local.xml
 
-# Archivos temporales o fuera de la carpeta del proyecto
-../exit
-../tian
-../h origin main*
+/target/
+*.class
+
