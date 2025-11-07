@@ -5,15 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class PacienteHistorialDTO {
+    private Integer registroId;
     private String alergias;
-
     private String antecedentes;
+    private LocalDateTime fechaUltimaActualizacion;
 }
+
+
+
+

@@ -7,11 +7,9 @@ INSERT INTO users(username, password) VALUES ('admin','$2a$12$75bOrec9bALa4Vhptf
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 1); -- user1 with ROLE_USER
 INSERT INTO user_roles (user_id, role_id) VALUES (2, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (3, 3); -- admin with ROLE_ADMIN
+INSERT INTO paciente(fecha_nacimiento, sexo, dni,alergias, antecedentes, apellidos,direccion, email, nombres, telefono,tipo_sangre) VALUES('1999-03-14', 'F','74581236', 'No refiere','Sin antecedentes relevantes','García Torres', 'Av. Brasil 1025 – Breña','maria.garcia@gmail.com', 'María Fernanda','987452103', 'O+');
 -- Centro médico de ejemplo
-INSERT INTO centro_medico (nombre, direccion, telefono)
-VALUES ('Clínica Santa María', 'Av. Perú 1234', '01678900');
+INSERT INTO centro_medico (nombre_centro, direccion, telefono) VALUES ('Clínica Santa María', 'Av. Perú 1234', '01678900');
 
 -- Medicamentos de ejemplo
-INSERT INTO medicamento (nombre, dosis)
-VALUES ('Paracetamol', '500mg'),
-       ('Ibuprofeno', '400mg');
+INSERT INTO medicamento (nombre, dosis) VALUES ('Paracetamol', '500mg'),('Ibuprofeno', '400mg');
