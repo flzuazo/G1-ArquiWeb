@@ -15,14 +15,9 @@ import java.time.LocalDate;
 public class ConsultaDTO {
     private Integer idConsulta;
     private Integer idPaciente; //Referencia
-    //private Paciente paciente;//objeto
     private Integer idProfesional;
-    //private ProfesionalSalud profesional; //Objeto
     private Integer idCentroMedico;//Referencia
-    //private CentroMedico centroMedico; //Objeto
     private LocalDate fechaConsulta;
-    private String diagnostico;
-    private String tratamiento;
-    private java.util.List<Diagnostico> diagnosticos;
-    private java.util.List<Receta> recetas;
+    private java.util.List<DiagnosticoDTO> diagnosticos;
+    private java.util.List<RecetaDTO> recetas;
 }

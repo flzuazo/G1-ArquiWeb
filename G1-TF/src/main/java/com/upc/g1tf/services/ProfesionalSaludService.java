@@ -50,7 +50,6 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
         return modelMapper.map(nuevoProfesional, ProfesionalSaludDTO.class);
     }
 
-    //  hu08          ---listar pacientes atendidos por un profesional de salud
     @Override
     public List<Object[]> listarPacientesAtendidos(Integer idProfesional) {
         List<Object[]> data = consultaRepository.findPacientesAtendidos(idProfesional);
