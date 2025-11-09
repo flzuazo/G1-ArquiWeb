@@ -1,5 +1,6 @@
 package com.upc.g1tf.controllers;
 
+import com.upc.g1tf.dtos.HistorialMedicoDTO;
 import com.upc.g1tf.dtos.PacienteDTO;
 import com.upc.g1tf.dtos.PacienteHistorialDTO;
 import com.upc.g1tf.dtos.PacienteUpdateDTO;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -31,6 +34,14 @@ public class PacienteController {
         PacienteDTO actualizado = pacienteService.actualizarPaciente(id, updateDTO);
         return ResponseEntity.ok(actualizado);
     }
+
+    @GetMapping("/pacientes/{id}/historial") // HU05 – Visualizar Historial Médico
+    @PreAuthorize("hasAnyRole('ADMIN', 'DOCTOR', 'PACIENTE')")
+    public ResponseEntity<List<HistorialMedicoDTO>> listarHistorialPorPaciente(@PathVariable Integer id) {
+        List<HistorialMedicoDTO> historial = pacienteService.listarHistorialPorPaciente(id);
+        return ResponseEntity.ok(historial);
+    }
+
 
     // ===== HU12 – Actualizar Antecedentes =====
     @PutMapping("/paciente/{id}/historial")
