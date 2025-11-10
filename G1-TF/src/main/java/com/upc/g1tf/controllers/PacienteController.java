@@ -51,5 +51,10 @@ public class PacienteController {
             @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
         return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
     }
+    @GetMapping("/pacientes/{id}")
+    public ResponseEntity<PacienteDTO> obtenerPaciente(@PathVariable Integer id) {
+        PacienteDTO paciente = pacienteService.obtenerPaciente(id);
+        return ResponseEntity.ok(paciente);
+    }
 
 }
