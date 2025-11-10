@@ -6,4 +6,6 @@ import com.upc.g1tf.dtos.PacienteUpdateDTO;
 public interface IPacienteService {
     PacienteDTO registrarPaciente(PacienteDTO pacienteDTO); //HU02
     PacienteDTO actualizarPaciente(Integer idPaciente, PacienteUpdateDTO updateDTO);
+    PacienteDTO obtenerPaciente(Integer id);
 }
+
