@@ -1,5 +1,6 @@
 package com.upc.g1tf.services;
 
+import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ProfesionalSaludDTO;
 import com.upc.g1tf.entities.ProfesionalSalud;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
@@ -51,14 +52,15 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
     }
 
     @Override
-    public List<Object[]> listarPacientesAtendidos(Integer idProfesional) {
-        List<Object[]> data = consultaRepository.findPacientesAtendidos(idProfesional);
-        if (data.isEmpty()) {
-            // Cumple el escenario "Error: doctor sin consultas."
+    public List<PacienteAtendidoDTO> listarPacientesAtendidos(Integer idProfesional) {
+        List<PacienteAtendidoDTO> pacientes = consultaRepository.findPacientesAtendidos(idProfesional);
+        if (pacientes.isEmpty()) {
             throw new EntityNotFoundException("El doctor no tiene consultas registradas.");
         }
-        return data;
+        return pacientes;
     }
+
+
 
 
 }

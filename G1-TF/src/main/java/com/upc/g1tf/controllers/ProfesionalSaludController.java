@@ -1,5 +1,6 @@
 package com.upc.g1tf.controllers;
 
+import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ProfesionalSaludDTO;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
 import jakarta.validation.Valid;
@@ -31,8 +32,9 @@ public class ProfesionalSaludController {
     // HU08 – Consultar Pacientes Atendidos
     @PreAuthorize("hasAnyRole('ADMIN','PROFESIONALSALUD')")
     @GetMapping("/doctor/{id}/pacientes")
-    // @PreAuthorize("hasAnyRole('ADMIN','DOCTOR')")
-    public ResponseEntity<List<Object[]>> listarPacientesAtendidos(@PathVariable Integer id) {
-        return ResponseEntity.ok(profesionalSaludService.listarPacientesAtendidos(id));
+    public ResponseEntity<List<PacienteAtendidoDTO>> listarPacientesAtendidos(@PathVariable Integer id) {
+        List<PacienteAtendidoDTO> pacientes = profesionalSaludService.listarPacientesAtendidos(id);
+        return ResponseEntity.ok(pacientes);
     }
+
 }
