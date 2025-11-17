@@ -1,6 +1,8 @@
 
 package com.upc.g1tf.security.entities;
 
+import com.upc.g1tf.entities.Paciente;
+import com.upc.g1tf.entities.ProfesionalSalud;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,4 +34,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name = "id_paciente", referencedColumnName = "idPaciente", nullable = true)
+    private Paciente paciente;
+
+    @OneToOne
+    @JoinColumn(name = "id_profesional", referencedColumnName = "idProfesional", nullable = true)
+    private ProfesionalSalud profesionalSalud;
+
+
 }
