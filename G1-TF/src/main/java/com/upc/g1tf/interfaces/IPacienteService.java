@@ -12,4 +12,6 @@ public interface IPacienteService {
     PacienteDTO actualizarPaciente(Integer idPaciente, PacienteUpdateDTO updateDTO);
     List<HistorialMedicoDTO> listarHistorialPorPaciente(Integer idPaciente);//HU05
     PacienteDTO actualizarHistorial(Integer idPaciente, PacienteHistorialDTO pacientehistorialdto); //HU12
+    PacienteDTO obtenerPaciente(Integer id);
 }
+
