@@ -160,4 +160,11 @@ public class PacienteService implements IPacienteService {
             return dto;
         }).collect(Collectors.toList());
     }
+    @Override
+    public PacienteDTO obtenerPaciente(Integer id) {
+        Paciente paciente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Paciente no encontrado"));
+        return modelMapper.map(paciente, PacienteDTO.class);
+    }
 }
+
