@@ -36,7 +36,7 @@ public class PacienteController {
     }
 
     @GetMapping("/pacientes/{id}/historial") // HU05 – Visualizar Historial Médico
-    @PreAuthorize("hasAnyRole('ADMIN', 'DOCTOR', 'PACIENTE')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_PROFESIONALSALUD', 'ROLE_PACIENTE')")
     public ResponseEntity<List<HistorialMedicoDTO>> listarHistorialPorPaciente(@PathVariable Integer id) {
         List<HistorialMedicoDTO> historial = pacienteService.listarHistorialPorPaciente(id);
         return ResponseEntity.ok(historial);

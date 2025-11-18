@@ -50,23 +50,45 @@ public class AuthController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthResponseDTO> createAuthenticationToken(@RequestBody AuthRequestDTO authRequest) throws Exception {
+        // Autenticación normal
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
         );
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
-        final String token = jwtUtil.generateToken(userDetails);
 
+        // Extraemos roles
         Set<String> roles = userDetails.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toSet());
 
+        // Construimos claims para el token
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", roles); // <- aquí incluimos los roles en el JWT
+
+        // Generamos token con claims
+        final String token = jwtUtil.generateToken(claims, userDetails.getUsername());
+
+        // Obtenemos la entidad de usuario para los IDs
+        User userEntity = userRepository.findByUsername(authRequest.getUsername())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Authorization", token);
+
+        // Construimos la respuesta
         AuthResponseDTO authResponseDTO = new AuthResponseDTO();
         authResponseDTO.setRoles(roles);
         authResponseDTO.setJwt(token);
+
+        if (userEntity.getPaciente() != null) {
+            authResponseDTO.setIdPaciente(userEntity.getPaciente().getIdPaciente());
+        }
+        if (userEntity.getProfesionalSalud() != null) {
+            authResponseDTO.setIdProfesionalSalud(userEntity.getProfesionalSalud().getIdProfesional());
+        }
+
         return ResponseEntity.ok().headers(responseHeaders).body(authResponseDTO);
     }
     @PutMapping("/change-password")
