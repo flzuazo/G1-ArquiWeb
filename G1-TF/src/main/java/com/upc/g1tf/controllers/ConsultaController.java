@@ -24,7 +24,7 @@ public class ConsultaController {
     }
 
     @PreAuthorize("hasAnyRole('ADMIN', 'PROFESIONALSALUD')")
-    @GetMapping("/lsitar_consultas")
+    @GetMapping("/listar_consultas")
     public List<ConsultaDTO> listarConsultas() {
         return consultaService.listarConsultas();
     }
