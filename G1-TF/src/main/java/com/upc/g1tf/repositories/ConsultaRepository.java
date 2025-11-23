@@ -88,4 +88,12 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(
             @Param("inicio") LocalDate inicio,
             @Param("fin") LocalDate fin);
+
+    @Query("SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(p.especialidad, COUNT(c), 0L) " +
+            "FROM Consulta c JOIN c.profesional p GROUP BY p.especialidad")
+    List<ReporteEspecialidadDTO> buscarConsultaPorEspecialidad();
+
+    @Query("SELECT new com.upc.g1tf.dtos.ReporteCentroDTO(cm.nombreCentro, COUNT(c), 0L) " +
+            "FROM Consulta c JOIN c.centroMedico cm GROUP BY cm.nombreCentro")
+    List<ReporteCentroDTO> buscarConsultaPorCentroMedico();
 }

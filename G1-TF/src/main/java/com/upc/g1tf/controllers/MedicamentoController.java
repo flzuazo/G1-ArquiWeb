@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true", exposedHeaders = "Authorization")
 @RequestMapping("/api")
@@ -23,5 +25,11 @@ public class MedicamentoController {
         MedicamentoDTO nuevoMedicamento = medicamentoService.insertarMedicamento(medicamentoDTO);
         // Se devuelve el objeto creado y el código de estado 201 CREATED
         return new ResponseEntity<>(nuevoMedicamento, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/medicamentos")
+    @PreAuthorize("hasAnyRole('ADMIN','PROFESIONALSALUD','PACIENTE')") // Ajusta roles
+    public ResponseEntity<List<MedicamentoDTO>> listar() {
+        return new ResponseEntity<>(medicamentoService.listarMedicamentos(), HttpStatus.OK);
     }
 }

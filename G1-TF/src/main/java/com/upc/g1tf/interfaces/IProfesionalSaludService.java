@@ -8,6 +8,7 @@ import java.util.List;
 public interface IProfesionalSaludService {
     ProfesionalSaludDTO registrarProfesional(ProfesionalSaludDTO profesionalSaludDTO); // HU006
     List<PacienteAtendidoDTO> listarPacientesAtendidos(Integer idProfesional); // HU08
+    List<ProfesionalSaludDTO> listar(); //HU15
 }
 
 

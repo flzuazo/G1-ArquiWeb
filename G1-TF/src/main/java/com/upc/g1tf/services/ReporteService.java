@@ -28,4 +28,14 @@ public class ReporteService implements IReporteService {
         return consultaRepository.obtenerReportePorEspecialidad(inicio, fin);
     }
 
+    @Override
+    public List<ReporteEspecialidadDTO> listarReportePorEspecialidad() {
+        return consultaRepository.buscarConsultaPorEspecialidad();
+    }
+
+    @Override
+    public List<ReporteCentroDTO> listarReportePorCentro() {
+        return consultaRepository.buscarConsultaPorCentroMedico();
+    }
+
 }
