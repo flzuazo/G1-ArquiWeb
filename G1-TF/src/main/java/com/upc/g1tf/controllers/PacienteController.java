@@ -6,7 +6,6 @@ import com.upc.g1tf.dtos.PacienteHistorialDTO;
 import com.upc.g1tf.dtos.PacienteUpdateDTO;
 import com.upc.g1tf.interfaces.IPacienteService;
 import jakarta.validation.Valid;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,20 +40,53 @@ public class PacienteController {
         List<HistorialMedicoDTO> historial = pacienteService.listarHistorialPorPaciente(id);
         return ResponseEntity.ok(historial);
     }
-
-
-    // ===== HU12 – Actualizar Antecedentes =====
-    @PutMapping("/paciente/{id}/historial")
-    @PreAuthorize("hasAnyRole('ADMIN','DOCTOR')")
-    public ResponseEntity<PacienteDTO> actualizarHistorial(
-            @PathVariable Integer id,
-            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
-        return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
-    }
     @GetMapping("/pacientes/{id}")
     public ResponseEntity<PacienteDTO> obtenerPaciente(@PathVariable Integer id) {
         PacienteDTO paciente = pacienteService.obtenerPaciente(id);
         return ResponseEntity.ok(paciente);
     }
+
+
+    // ===== HU12 – Actualizar Antecedentes =====
+    @PutMapping("/paciente/historial/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_PROFESIONALSALUD')")
+    public ResponseEntity<PacienteDTO> actualizarHistorial(
+            @PathVariable Integer id,
+            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
+        return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
+    }
+
+    // ======================================================
+//  HU12 – Validar si un paciente existe (para botón Buscar)
+//  GET /api/pacientes/validar/${id}
+// ======================================================
+    @GetMapping("/paciente/validar/{id}")
+    public ResponseEntity<Boolean> validarPaciente(@PathVariable Integer id) {
+        boolean existe = pacienteService.validarPaciente(id);
+        return ResponseEntity.ok(existe);
+    }
+
+
+
+    // ======================================================
+//  HU12 – Listar historial completo para la tabla
+//  GET /api/pacientes/registros/${id}
+// ======================================================
+    @GetMapping("/paciente/registros/{id}")
+    public ResponseEntity<List<PacienteHistorialDTO>> obtenerHistorial(@PathVariable Integer id) {
+        List<PacienteHistorialDTO> lista = pacienteService.obtenerHistorial(id);
+        return ResponseEntity.ok(lista);
+    }
+    // ======================================================
+//  HU12 – Eliminar historial del paciente
+//  DELETE /api/registros/${registroId}
+// ======================================================
+    @DeleteMapping("/paciente/historial/{registroId}")
+    public ResponseEntity<Void> eliminarHistorial(@PathVariable Integer registroId) {
+
+        pacienteService.eliminarHistorial(registroId);
+        return ResponseEntity.noContent().build();
+    }
+
 
 }

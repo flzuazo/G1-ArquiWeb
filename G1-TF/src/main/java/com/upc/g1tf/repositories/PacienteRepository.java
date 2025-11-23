@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface PacienteRepository extends JpaRepository<Paciente,Integer> {
     Optional<Paciente> findByDni(String dni);
     List<Paciente> findByIdPaciente(Integer idPaciente);// Para validar
+
 }
