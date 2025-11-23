@@ -7,9 +7,15 @@ INSERT INTO users(username, password) VALUES ('admin','$2a$12$75bOrec9bALa4Vhptf
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 1); -- user1 with ROLE_USER
 INSERT INTO user_roles (user_id, role_id) VALUES (2, 2);
 INSERT INTO user_roles (user_id, role_id) VALUES (3, 3); -- admin with ROLE_ADMIN
-INSERT INTO paciente(fecha_nacimiento, sexo, dni,alergias, antecedentes, apellidos,direccion, email, nombres, telefono,tipo_sangre) VALUES('1999-03-14', 'F','74581236', 'No refiere','Sin antecedentes relevantes','García Torres', 'Av. Brasil 1025 – Breña','maria.garcia@gmail.com', 'María Fernanda','987452103', 'O+');
--- Centro médico de ejemplo
-INSERT INTO centro_medico (nombre_centro, direccion, telefono) VALUES ('Clínica Santa María', 'Av. Perú 1234', '01678900');
 
--- Medicamentos de ejemplo
-INSERT INTO medicamento (nombre, dosis) VALUES ('Paracetamol', '500mg'),('Ibuprofeno', '400mg');
+-- 1. PACIENTES
+INSERT INTO paciente (id_paciente, nombres, apellidos, dni, fecha_nacimiento, sexo, direccion, telefono, email, tipo_sangre, alergias, antecedentes) VALUES (1, 'Juan', 'Pérez', '12345678', '1990-05-10', 'M', 'Av Lima 123', '999111222', 'juan@example.com', 'O+', 'Ninguna', 'Sin antecedentes'), (2, 'María', 'Lopez', '87654321', '1985-09-20', 'F', 'Av Perú 555', '988777444', 'maria@example.com', 'A+', 'Alergia a penicilina', 'Asma'), (3, 'Carlos', 'Ramos', '11223344', '2000-01-15', 'M', 'Av Brasil 888', '900111333', 'carlos@example.com', 'B-', 'Polen', 'Sin antecedentes');
+
+-- 2. PROFESIONALES SALUD
+INSERT INTO profesional_salud (id_profesional, nombres, apellidos, especialidad, colegiatura, email, telefono) VALUES (1, 'Ana', 'Torres', 'Cardiología', 'CMP12345', 'ana.torres@cm.com', '955888111'), (2, 'Luis', 'Gomez', 'Pediatría', 'CMP56789', 'luis.gomez@cm.com', '944222333'), (3, 'Elena', 'Vargas', 'Dermatología', 'CMP98765', 'elena.vargas@cm.com', '933444555');
+
+-- 3. CENTRO MEDICO (SUPOSICIÓN)
+INSERT INTO centro_medico (id_centro_medico, nombre_centro, direccion, telefono) VALUES (1, 'Centro Médico Sur', 'Av. La Salud 123','999999999');
+
+-- 4. CONSULTAS
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta) VALUES (1, 1, 1, 1, '2024-11-01'), (2, 2, 2, 1, '2024-11-05', 'Fiebre', 'Paracetamol de 500'), (3, 3, 3, 1, '2024-11-10', 'Tos', 'Ibuprofeno de 500');

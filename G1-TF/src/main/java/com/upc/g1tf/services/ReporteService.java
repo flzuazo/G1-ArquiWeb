@@ -23,9 +23,4 @@ public class ReporteService implements IReporteService {
         return consultaRepository.generarReporte(fechaInicio, fechaFin);
     }
 
-    @Override
-    public List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(LocalDate inicio, LocalDate fin) {
-        return consultaRepository.obtenerReportePorEspecialidad(inicio, fin);
-    }
-
 }

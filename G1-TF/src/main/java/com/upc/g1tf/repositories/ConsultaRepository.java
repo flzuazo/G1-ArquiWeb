@@ -1,5 +1,6 @@
 package com.upc.g1tf.repositories;
 
+import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ReporteCentroDTO;
 import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.entities.Consulta;
@@ -14,12 +15,29 @@ import java.util.List;
 @Repository
 public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
+    // 🔹 HU05 – Historial médico completo del paciente
+    @Query("""
+        SELECT c FROM Consulta c
+        LEFT JOIN FETCH c.profesional p
+        LEFT JOIN FETCH c.centroMedico cm
+        WHERE c.paciente.idPaciente = :idPaciente
+        ORDER BY c.fechaConsulta DESC
+    """)
+    List<Consulta> findHistorialByPacienteIdWithAllData(@Param("idPaciente") Integer idPaciente);
+
     List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 
-    // HU08 – Pacientes atendidos por doctor
-    @Query("""
-        SELECT p.idPaciente, p.nombres, p.apellidos, p.dni,
-               c.fechaConsulta, c.idConsulta
+    // 🔹 HU08 – Pacientes atendidos por doctor (versión mejorada)
+        @Query("""
+        SELECT new com.upc.g1tf.dtos.PacienteAtendidoDTO(
+            p.idPaciente,
+            p.nombres,
+            p.apellidos,
+            p.dni,
+            c.fechaConsulta,
+            c.diagnostico,
+            c.idConsulta
+        )
         FROM Consulta c
         JOIN c.paciente p
         WHERE c.profesional.idProfesional = :idDoc
@@ -30,8 +48,9 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
                 AND c2.profesional.idProfesional = :idDoc
           )
         ORDER BY p.apellidos, p.nombres
-        """)
-    List<Object[]> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
+    """)
+    List<PacienteAtendidoDTO> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
+
 
     // Reporte por centro médico
     @Query("""
@@ -49,19 +68,4 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     List<ReporteCentroDTO> generarReporte(@Param("fechaInicio") LocalDate fechaInicio,
                                           @Param("fechaFin") LocalDate fechaFin);
 
-    // Reporte por especialidad
-    @Query("""
-        SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(
-            p.especialidad,
-            COUNT(DISTINCT c.paciente.idPaciente),
-            COUNT(c)
-        )
-        FROM Consulta c
-        JOIN c.profesional p
-        WHERE c.fechaConsulta BETWEEN :inicio AND :fin
-        GROUP BY p.especialidad
-        """)
-    List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(
-            @Param("inicio") LocalDate inicio,
-            @Param("fin") LocalDate fin);
 }
