@@ -17,11 +17,7 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
 
     // 🔹 HU05 – Historial médico completo del paciente
     @Query("""
-        SELECT DISTINCT c FROM Consulta c
-        LEFT JOIN FETCH c.diagnosticos d
-        LEFT JOIN FETCH c.recetas r
-        LEFT JOIN FETCH r.recetaMedicamentos rm
-        LEFT JOIN FETCH rm.medicamento m
+        SELECT c FROM Consulta c
         LEFT JOIN FETCH c.profesional p
         LEFT JOIN FETCH c.centroMedico cm
         WHERE c.paciente.idPaciente = :idPaciente
@@ -32,28 +28,27 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     List<Consulta> findByPacienteIdPacienteOrderByFechaConsultaDesc(Integer pacienteId);
 
     // 🔹 HU08 – Pacientes atendidos por doctor (versión mejorada)
-    @Query("""
-    SELECT new com.upc.g1tf.dtos.PacienteAtendidoDTO(
-        p.idPaciente,
-        p.nombres,
-        p.apellidos,
-        p.dni,
-        c.fechaConsulta,
-        d.descripcion,
-        c.idConsulta
-    )
-    FROM Consulta c
-    JOIN c.paciente p
-    LEFT JOIN c.diagnosticos d
-    WHERE c.profesional.idProfesional = :idDoc
-      AND c.fechaConsulta = (
-          SELECT MAX(c2.fechaConsulta)
-          FROM Consulta c2
-          WHERE c2.paciente.idPaciente = p.idPaciente
-            AND c2.profesional.idProfesional = :idDoc
-      )
-    ORDER BY p.apellidos, p.nombres
-""")
+        @Query("""
+        SELECT new com.upc.g1tf.dtos.PacienteAtendidoDTO(
+            p.idPaciente,
+            p.nombres,
+            p.apellidos,
+            p.dni,
+            c.fechaConsulta,
+            c.diagnostico,
+            c.idConsulta
+        )
+        FROM Consulta c
+        JOIN c.paciente p
+        WHERE c.profesional.idProfesional = :idDoc
+          AND c.fechaConsulta = (
+              SELECT MAX(c2.fechaConsulta)
+              FROM Consulta c2
+              WHERE c2.paciente.idPaciente = p.idPaciente
+                AND c2.profesional.idProfesional = :idDoc
+          )
+        ORDER BY p.apellidos, p.nombres
+    """)
     List<PacienteAtendidoDTO> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
 
 
@@ -73,27 +68,4 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     List<ReporteCentroDTO> generarReporte(@Param("fechaInicio") LocalDate fechaInicio,
                                           @Param("fechaFin") LocalDate fechaFin);
 
-    // Reporte por especialidad
-    @Query("""
-        SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(
-            p.especialidad,
-            COUNT(DISTINCT c.paciente.idPaciente),
-            COUNT(c)
-        )
-        FROM Consulta c
-        JOIN c.profesional p
-        WHERE c.fechaConsulta BETWEEN :inicio AND :fin
-        GROUP BY p.especialidad
-        """)
-    List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(
-            @Param("inicio") LocalDate inicio,
-            @Param("fin") LocalDate fin);
-
-    @Query("SELECT new com.upc.g1tf.dtos.ReporteEspecialidadDTO(p.especialidad, COUNT(c), 0L) " +
-            "FROM Consulta c JOIN c.profesional p GROUP BY p.especialidad")
-    List<ReporteEspecialidadDTO> buscarConsultaPorEspecialidad();
-
-    @Query("SELECT new com.upc.g1tf.dtos.ReporteCentroDTO(cm.nombreCentro, COUNT(c), 0L) " +
-            "FROM Consulta c JOIN c.centroMedico cm GROUP BY cm.nombreCentro")
-    List<ReporteCentroDTO> buscarConsultaPorCentroMedico();
 }

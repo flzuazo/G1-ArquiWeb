@@ -1,9 +1,6 @@
 package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.ConsultaDTO;
-import com.upc.g1tf.dtos.DiagnosticoDTO;
-import com.upc.g1tf.dtos.RecetaDTO;
-import com.upc.g1tf.dtos.RecetaMedicamentoDTO;
 import com.upc.g1tf.entities.*;
 import com.upc.g1tf.interfaces.IConsultaService;
 import com.upc.g1tf.repositories.*;
@@ -29,8 +26,6 @@ public class ConsultaService implements IConsultaService {
     @Autowired
     private PacienteRepository pacienteRepository;
 
-    @Autowired
-    private MedicamentoRepository  medicamentoRepository;
 
     // ====== Mapper DTO <-> Entity ======
     private ConsultaDTO toDTO(Consulta consulta) {
@@ -40,47 +35,8 @@ public class ConsultaService implements IConsultaService {
         dto.setIdProfesional(consulta.getProfesional().getIdProfesional());
         dto.setIdCentroMedico(consulta.getCentroMedico().getIdCentroMedico());
         dto.setFechaConsulta(consulta.getFechaConsulta());
-
-        // === Diagnósticos ===
-        if (consulta.getDiagnosticos() != null) {
-            List<DiagnosticoDTO> diagnosticosDTO = consulta.getDiagnosticos().stream().map(d -> {
-                DiagnosticoDTO ddto = new DiagnosticoDTO();
-                ddto.setIdDiagnostico(d.getIdDiagnostico());
-                ddto.setDescripcion(d.getDescripcion());
-                ddto.setCodigoCIE10(d.getCodigoCIE10());
-                // 👇 Agregamos el idConsulta
-                ddto.setIdConsulta(consulta.getIdConsulta());
-                return ddto;
-            }).collect(Collectors.toList());
-            dto.setDiagnosticos(diagnosticosDTO);
-        }
-
-        // === Recetas ===
-        if (consulta.getRecetas() != null) {
-            List<RecetaDTO> recetasDTO = consulta.getRecetas().stream().map(r -> {
-                RecetaDTO rdto = new RecetaDTO();
-                rdto.setIdReceta(r.getIdReceta());
-                rdto.setFechaEmision(r.getFechaEmision());
-                // 👇 Agregamos el idConsulta
-                rdto.setIdConsulta(consulta.getIdConsulta());
-
-                // === RecetaMedicamentos ===
-                if (r.getRecetaMedicamentos() != null) {
-                    List<RecetaMedicamentoDTO> rmDTOs = r.getRecetaMedicamentos().stream().map(rm -> {
-                        RecetaMedicamentoDTO rmdto = new RecetaMedicamentoDTO();
-                        rmdto.setIdMedicamento(rm.getMedicamento().getIdMedicamento());
-                        rmdto.setIndicaciones(rm.getIndicaciones());
-                        // 👇 Agregamos el idReceta
-                        rmdto.setIdReceta(r.getIdReceta());
-                        return rmdto;
-                    }).collect(Collectors.toList());
-                    rdto.setRecetaMedicamentos(rmDTOs);
-                }
-
-                return rdto;
-            }).collect(Collectors.toList());
-            dto.setRecetas(recetasDTO);
-        }
+        dto.setDiagnostico(consulta.getDiagnostico());
+        dto.setReceta(consulta.getReceta());
 
         return dto;
     }
@@ -105,69 +61,15 @@ public class ConsultaService implements IConsultaService {
         consulta.setProfesional(profesional);
         consulta.setCentroMedico(centro);
         consulta.setFechaConsulta(dto.getFechaConsulta());
-
+        consulta.setDiagnostico(dto.getDiagnostico());
+        consulta.setReceta(dto.getReceta());
         // Copia final para lambdas
         final Consulta consultaFinal = consulta;
 
-        // === Diagnósticos ===
-        if (dto.getDiagnosticos() != null && !dto.getDiagnosticos().isEmpty()) {
-            List<Diagnostico> diagnosticos = dto.getDiagnosticos().stream().map(d -> {
-                Diagnostico diag = new Diagnostico();
-                diag.setDescripcion(d.getDescripcion());
-                diag.setCodigoCIE10(d.getCodigoCIE10());
-                diag.setConsulta(consultaFinal); // ✅ usa la variable final
-                return diag;
-            }).collect(Collectors.toList());
-
-            consulta.setDiagnosticos(diagnosticos);
-        }
-
-        // === Recetas ===
-        if (dto.getRecetas() != null && !dto.getRecetas().isEmpty()) {
-            List<Receta> recetas = dto.getRecetas().stream().map(r -> {
-                Receta receta = new Receta();
-                receta.setFechaEmision(r.getFechaEmision());
-                receta.setConsulta(consultaFinal); // ✅ usa la variable final
-
-                // RecetaMedicamentos dentro de la receta
-                if (r.getRecetaMedicamentos() != null && !r.getRecetaMedicamentos().isEmpty()) {
-                    List<RecetaMedicamento> listaRecetaMed = r.getRecetaMedicamentos().stream().map(rmDto -> {
-                        RecetaMedicamento rm = new RecetaMedicamento();
-
-                        Medicamento med = medicamentoRepository.findById(rmDto.getIdMedicamento())
-                                .orElseThrow(() -> new RuntimeException("Medicamento no encontrado: " + rmDto.getIdMedicamento()));
-
-                        rm.setMedicamento(med);
-                        rm.setReceta(receta);
-                        rm.setIndicaciones(rmDto.getIndicaciones());
-
-                        // 🔧 Inicializar clave compuesta (idReceta, idMedicamento)
-                        RecetaMedicamentoId id = new RecetaMedicamentoId();
-                        id.setIdMedicamento(med.getIdMedicamento());
-                        // el idReceta aún no existe porque la receta no se ha guardado,
-                        // pero Hibernate lo completará automáticamente por el @MapsId.
-                        rm.setId(id);
-
-                        return rm;
-                    }).collect(Collectors.toList());
-
-                    receta.setRecetaMedicamentos(listaRecetaMed);
-                }
-
-                return receta;
-            }).collect(Collectors.toList());
-
-            consulta.setRecetas(recetas);
-        }
-
-        // === Guardar consulta (con cascade guarda diagnósticos y recetas) ===
         consulta = consultaRepository.save(consulta);
 
         return toDTO(consulta);
     }
-
-
-
 
     @Override
     public List<ConsultaDTO> listarConsultas() {

@@ -32,39 +32,4 @@ public class ReporteController {
             @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
         return reporteService.generarReporte(fechaInicio, fechaFin);
     }
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/especialidades")
-    public ResponseEntity<?> reportePorEspecialidad(
-            @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
-            @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin,
-            @RequestParam(value = "format", required = false) String format) {
-
-        List<ReporteEspecialidadDTO> reporte = reporteService.obtenerReportePorEspecialidad(fechaInicio, fechaFin);
-
-        if ("csv".equalsIgnoreCase(format)) {
-            StringBuilder csv = new StringBuilder("especialidad,pacientes,consultas\n");
-            for (ReporteEspecialidadDTO r : reporte) {
-                csv.append(r.getEspecialidad()).append(",")
-                        .append(r.getPacientes()).append(",")
-                        .append(r.getConsultas()).append("\n");
-            }
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=reporte_especialidades.csv")
-                    .contentType(MediaType.parseMediaType("text/csv"))
-                    .body(csv.toString());
-        }
-
-        return ResponseEntity.ok(reporte);
-    }
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/especialidades-simple")
-    public List<ReporteEspecialidadDTO> listarPorEspecialidadSimple() {
-        return reporteService.listarReportePorEspecialidad();
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/centros-simple")
-    public List<ReporteCentroDTO> listarPorCentroSimple() {
-        return reporteService.listarReportePorCentro();
-    }
 }

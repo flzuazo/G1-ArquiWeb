@@ -32,10 +32,8 @@ public class Consulta {
 
     private LocalDate fechaConsulta;
 
-    @OneToMany(mappedBy = "consulta", cascade = CascadeType.ALL)
-    private java.util.List<Diagnostico> diagnosticos;
+    private String diagnostico;
 
-    @OneToMany(mappedBy = "consulta", cascade = CascadeType.ALL)
-    private java.util.List<Receta> recetas;
+    private String receta;
 }
 

@@ -18,6 +18,6 @@ public class ConsultaDTO {
     private Integer idProfesional;
     private Integer idCentroMedico;//Referencia
     private LocalDate fechaConsulta;
-    private java.util.List<DiagnosticoDTO> diagnosticos;
-    private java.util.List<RecetaDTO> recetas;
+    private String diagnostico;
+    private String receta;
 }

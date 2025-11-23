@@ -19,6 +19,6 @@ public class HistorialMedicoDTO {
     private String especialidad;
     private String centroMedico;
 
-    private List<DiagnosticoDTO> diagnosticos;
-    private List<RecetaDTO> recetas;
+    private String diagnostico;
+    private String receta;
 }

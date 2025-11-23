@@ -112,54 +112,39 @@ public class PacienteService implements IPacienteService {
 
         return consultas.stream().map(c -> {
             HistorialMedicoDTO dto = new HistorialMedicoDTO();
+
             dto.setIdConsulta(c.getIdConsulta());
             dto.setFechaConsulta(c.getFechaConsulta());
 
+            // Profesional de la salud
             if (c.getProfesional() != null) {
                 dto.setDoctor(c.getProfesional().getNombres() + " " + c.getProfesional().getApellidos());
                 dto.setEspecialidad(c.getProfesional().getEspecialidad());
             }
 
-            if (c.getCentroMedico() != null)
+            // Centro médico
+            if (c.getCentroMedico() != null) {
                 dto.setCentroMedico(c.getCentroMedico().getNombreCentro());
+            }
 
-            List<DiagnosticoDTO> diagnosticos = (c.getDiagnosticos() == null)
-                    ? List.of()
-                    : c.getDiagnosticos().stream().map(d -> {
-                DiagnosticoDTO dDTO = new DiagnosticoDTO();
-                dDTO.setIdDiagnostico(d.getIdDiagnostico());
-                dDTO.setIdConsulta(c.getIdConsulta());
-                dDTO.setDescripcion(d.getDescripcion());
-                dDTO.setCodigoCIE10(d.getCodigoCIE10());
-                return dDTO;
-            }).collect(Collectors.toList());
-            dto.setDiagnosticos(diagnosticos);
+            // Diagnóstico
+            dto.setDiagnostico(
+                    (c.getDiagnostico() != null && !c.getDiagnostico().isBlank())
+                            ? c.getDiagnostico()
+                            : "Sin diagnóstico registrado"
+            );
 
-            List<RecetaDTO> recetas = (c.getRecetas() == null)
-                    ? List.of()
-                    : c.getRecetas().stream().map(r -> {
-                RecetaDTO rDTO = new RecetaDTO();
-                rDTO.setIdReceta(r.getIdReceta());
-                rDTO.setIdConsulta(c.getIdConsulta());
-                rDTO.setFechaEmision(r.getFechaEmision());
-
-                List<RecetaMedicamentoDTO> meds = (r.getRecetaMedicamentos() == null)
-                        ? List.of()
-                        : r.getRecetaMedicamentos().stream().map(RM -> {
-                    RecetaMedicamentoDTO rmDTO = new RecetaMedicamentoDTO();
-                    rmDTO.setIdReceta(RM.getReceta().getIdReceta());
-                    rmDTO.setIdMedicamento(RM.getMedicamento().getIdMedicamento());
-                    rmDTO.setIndicaciones(RM.getIndicaciones());
-                    return rmDTO;
-                }).collect(Collectors.toList());
-                rDTO.setRecetaMedicamentos(meds);
-                return rDTO;
-            }).collect(Collectors.toList());
-            dto.setRecetas(recetas);
+            // Receta
+            dto.setReceta(
+                    (c.getReceta() != null && !c.getReceta().isBlank())
+                            ? c.getReceta()
+                            : "Sin receta registrada"
+            );
 
             return dto;
         }).collect(Collectors.toList());
     }
+
     @Override
     public PacienteDTO obtenerPaciente(Integer id) {
         Paciente paciente = pacienteRepository.findById(id)

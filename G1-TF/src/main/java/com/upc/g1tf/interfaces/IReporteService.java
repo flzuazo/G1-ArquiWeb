@@ -8,7 +8,4 @@ import java.util.List;
 
 public interface IReporteService {
     List<ReporteCentroDTO> generarReporte(LocalDate fechaInicio, LocalDate fechaFin);
-    List<ReporteEspecialidadDTO> obtenerReportePorEspecialidad(LocalDate inicio, LocalDate fin);
-    List<ReporteEspecialidadDTO> listarReportePorEspecialidad();
-    List<ReporteCentroDTO> listarReportePorCentro();
 }
