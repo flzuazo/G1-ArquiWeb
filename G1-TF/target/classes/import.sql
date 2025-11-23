@@ -17,17 +17,5 @@ INSERT INTO profesional_salud (id_profesional, nombres, apellidos, especialidad,
 -- 3. CENTRO MEDICO (SUPOSICIÓN)
 INSERT INTO centro_medico (id_centro_medico, nombre_centro, direccion, telefono) VALUES (1, 'Centro Médico Sur', 'Av. La Salud 123','999999999');
 
--- 4. MEDICAMENTOS
-INSERT INTO medicamento (id_medicamento, nombre, dosis) VALUES(1, 'Ibuprofeno', '400mg'), (2, 'Amoxicilina', '500mg'), (3, 'Paracetamol', '500mg');
-
--- 5. CONSULTAS (depende de paciente, profesional, centro)
-INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta) VALUES (1, 1, 1, 1, '2024-11-01'), (2, 2, 2, 1, '2024-11-05'), (3, 3, 3, 1, '2024-11-10');
-
--- 6. DIAGNOSTICOS (depende de consulta)
-INSERT INTO diagnostico (id_diagnostico, id_consulta, descripcion, codigocie10) VALUES (1, 1, 'Infección respiratoria', 'J06.9'), (2, 2, 'Alergia estacional', 'J30.1'), (3, 3, 'Dermatitis', 'L30.9');
-
--- 7. RECETAS (depende de consulta)
-INSERT INTO receta (id_receta, id_consulta, fecha_emision) VALUES (1, 1, '2024-11-01'), (2, 2, '2024-11-05'), (3, 3, '2024-11-10');
-
--- 8. RECETA_MEDICAMENTO (tabla con PK compuesta)
-INSERT INTO receta_medicamento (id_receta, id_medicamento, indicaciones) VALUES (1, 1, 'Tomar cada 8 horas'), (2, 3, 'Tomar cada 6 horas'), (3, 2, 'Tomar 1 cápsula cada 12 horas');
+-- 4. CONSULTAS
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta) VALUES (1, 1, 1, 1, '2024-11-01'), (2, 2, 2, 1, '2024-11-05', 'Fiebre', 'Paracetamol de 500'), (3, 3, 3, 1, '2024-11-10', 'Tos', 'Ibuprofeno de 500');
