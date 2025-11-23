@@ -42,9 +42,10 @@ public class MedicamentoService implements IMedicamentoService {
 
     @Override
     public List<MedicamentoDTO> listarMedicamentos() {
-        return List.of();
+        return medicamentoRepository.findAll().stream()
+                .map(m -> modelMapper.map(m, MedicamentoDTO.class))
+                .collect(Collectors.toList());
     }
-
     @Override
     public MedicamentoDTO buscarMedicamentoPorId(Long id) {
         return null;

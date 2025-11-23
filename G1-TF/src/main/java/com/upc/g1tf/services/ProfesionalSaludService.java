@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProfesionalSaludService implements IProfesionalSaludService {
@@ -60,7 +61,12 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
         return pacientes;
     }
 
-
+    @Override
+    public List<ProfesionalSaludDTO> listar() {
+        return profesionalSaludRepository.findAll().stream()
+                .map(p -> modelMapper.map(p, ProfesionalSaludDTO.class))
+                .collect(Collectors.toList());
+    }
 
 
 }

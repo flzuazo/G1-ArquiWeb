@@ -56,5 +56,15 @@ public class ReporteController {
 
         return ResponseEntity.ok(reporte);
     }
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/especialidades-simple")
+    public List<ReporteEspecialidadDTO> listarPorEspecialidadSimple() {
+        return reporteService.listarReportePorEspecialidad();
+    }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/centros-simple")
+    public List<ReporteCentroDTO> listarPorCentroSimple() {
+        return reporteService.listarReportePorCentro();
+    }
 }
