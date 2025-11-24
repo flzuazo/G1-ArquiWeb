@@ -1,15 +1,11 @@
 package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.*;
-import com.upc.g1tf.entities.CentroMedico;
 import com.upc.g1tf.entities.Consulta;
 import com.upc.g1tf.entities.Paciente;
-import com.upc.g1tf.entities.ProfesionalSalud;
 import com.upc.g1tf.interfaces.IPacienteService;
-import com.upc.g1tf.repositories.CentroMedicoRepository;
 import com.upc.g1tf.repositories.ConsultaRepository;
 import com.upc.g1tf.repositories.PacienteRepository;
-import com.upc.g1tf.repositories.ProfesionalSaludRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -17,6 +13,8 @@ import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,10 +27,6 @@ public class PacienteService implements IPacienteService {
     private ModelMapper modelMapper;
     @Autowired
     private ConsultaRepository consultaRepository;
-    @Autowired
-    private CentroMedicoRepository centromedicoRepository;          // NEW
-    @Autowired
-    private ProfesionalSaludRepository profesionalsaludRepository;  // NEW
 
 
     // ===== HU02 – Registrar Paciente =====
@@ -91,19 +85,75 @@ public class PacienteService implements IPacienteService {
         Paciente paciente = pacienteRepository.findById(idPaciente)
                 .orElseThrow(() -> new EntityNotFoundException("Paciente no encontrado con ID: " + idPaciente));
 
-        if (pacientehistorialDTO.getAlergias() != null) {
-            paciente.setAlergias(pacientehistorialDTO.getAlergias());
+        // === Actualizar alergias (reemplazar, no concatenar) ===
+        if (pacientehistorialDTO.getAlergias() != null && !pacientehistorialDTO.getAlergias().isBlank()) {
+            String nuevo = pacientehistorialDTO.getAlergias().trim();
+            // Se reemplaza el valor actual de alergias por el nuevo
+            paciente.setAlergias(nuevo.length() > 500 ? nuevo.substring(0, 500) : nuevo); // Limitar a 500 caracteres
+        } else {
+            // Si el campo alergias está vacío, se lo puede dejar en null si deseas que se borre
+            paciente.setAlergias(null);
+        }
+        // === Actualizar antecedentes (reemplazar, no concatenar) ===
+        if (pacientehistorialDTO.getAntecedentes() != null && !pacientehistorialDTO.getAntecedentes().isBlank()) {
+            String nuevo = pacientehistorialDTO.getAntecedentes().trim();
+            // Se reemplaza el valor actual de antecedentes por el nuevo
+            paciente.setAntecedentes(nuevo);
+        } else {
+            // Si el campo any está vacío, se lo puede dejar en null si deseas que se borre
+            paciente.setAntecedentes(null);
         }
 
-        if (paciente.getAntecedentes() == null) {
-            paciente.setAntecedentes(pacientehistorialDTO.getAntecedentes());
-        }
+        // Actualizar la fecha de la última actualización con la fecha y hora actual
+        pacientehistorialDTO.setFechaUltimaActualizacion(LocalDateTime.now()); // Setear la fecha actual
+        paciente.setFechaUltimaActualizacion(pacientehistorialDTO.getFechaUltimaActualizacion()); // Guardar en paciente
+
+        // Guardamos el paciente con los nuevos datos
 
         Paciente actualizado = pacienteRepository.save(paciente);
         return modelMapper.map(actualizado, PacienteDTO.class);
     }
+    @Override
+    // Eliminar un registro del historial
+    public void eliminarHistorial(Integer registroId) {
+        // Buscar el paciente usando el registroId
+        Paciente paciente = pacienteRepository.findById(registroId)
+                .orElseThrow(() -> new EntityNotFoundException("Registro no encontrado con ID: " + registroId));
 
-    // ===== HU05 – Visualizar Historial Médico =====
+        // Eliminar solo las alergias y antecedentes del paciente
+        paciente.setAlergias(null);  // Limpiar las alergias
+        paciente.setAntecedentes(null);  // Limpiar los antecedentes
+
+        paciente.setFechaUltimaActualizacion(LocalDateTime.now());
+
+        // Eliminar el paciente
+        pacienteRepository.save(paciente);
+    }
+
+    @Override
+    // Obtener todos los registros del historial de un paciente
+    public List<PacienteHistorialDTO> obtenerHistorial(Integer idPaciente) {
+        // Buscar los registros del paciente
+        List<Paciente> registros = pacienteRepository.findByIdPaciente(idPaciente);
+
+        // Convertir los registros de la entidad a DTO
+        return registros.stream()
+                .map(paciente -> new PacienteHistorialDTO(
+                        paciente.getIdPaciente(),
+                        paciente.getAlergias(),
+                        paciente.getAntecedentes(),
+                        paciente.getFechaUltimaActualizacion()
+                ))
+                .collect(Collectors.toList());
+    }
+
+
+    public boolean validarPaciente(Integer id) {
+        return pacienteRepository.findById(id).isPresent(); // Retorna true si el paciente existe, false si no
+    }
+
+
+        // ===== HU05 – Visualizar Historial Médico =====
     @Override
     @Transactional(readOnly = true)
     public List<HistorialMedicoDTO> listarHistorialPorPaciente(Integer idPaciente) {
