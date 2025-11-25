@@ -74,6 +74,9 @@ public class PacienteService implements IPacienteService {
         if (updateDTO.getAntecedentes() != null) {
             paciente.setAntecedentes(updateDTO.getAntecedentes());
         }
+        if (updateDTO.getAlergias() != null) {
+            paciente.setAlergias(updateDTO.getAlergias());
+        }
         Paciente actualizado = pacienteRepository.save(paciente);
 
         return modelMapper.map(actualizado, PacienteDTO.class);
@@ -202,4 +205,5 @@ public class PacienteService implements IPacienteService {
         return modelMapper.map(paciente, PacienteDTO.class);
     }
 }
+
 
