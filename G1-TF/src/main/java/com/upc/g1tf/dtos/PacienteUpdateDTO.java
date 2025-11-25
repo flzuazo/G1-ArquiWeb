@@ -21,4 +21,5 @@ public class PacienteUpdateDTO {
     private String email;
 
     private String antecedentes;
+    private String alergias;
 }
