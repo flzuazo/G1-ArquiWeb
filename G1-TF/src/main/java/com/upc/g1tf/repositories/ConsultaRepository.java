@@ -1,8 +1,6 @@
 package com.upc.g1tf.repositories;
 
 import com.upc.g1tf.dtos.PacienteAtendidoDTO;
-import com.upc.g1tf.dtos.ReporteCentroDTO;
-import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.entities.Consulta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -50,22 +48,5 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
         ORDER BY p.apellidos, p.nombres
     """)
     List<PacienteAtendidoDTO> findPacientesAtendidos(@Param("idDoc") Integer idProfesional);
-
-
-    // Reporte por centro médico
-    @Query("""
-        SELECT new com.upc.g1tf.dtos.ReporteCentroDTO(
-            cMed.nombreCentro,
-            COUNT(cs.idConsulta),
-            COUNT(DISTINCT p.idProfesional)
-        )
-        FROM Consulta cs
-        JOIN cs.centroMedico cMed
-        JOIN cs.profesional p
-        WHERE cs.fechaConsulta BETWEEN :fechaInicio AND :fechaFin
-        GROUP BY cMed.nombreCentro
-        """)
-    List<ReporteCentroDTO> generarReporte(@Param("fechaInicio") LocalDate fechaInicio,
-                                          @Param("fechaFin") LocalDate fechaFin);
 
 }

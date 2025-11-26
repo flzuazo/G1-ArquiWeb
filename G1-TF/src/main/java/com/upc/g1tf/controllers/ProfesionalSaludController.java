@@ -29,6 +29,12 @@ public class ProfesionalSaludController {
         return ResponseEntity.ok(nuevoProfesional);
     }
 
+    @PostMapping("/public/profesional")
+    public ResponseEntity<ProfesionalSaludDTO> registrarProfesionalPublico(@Valid @RequestBody ProfesionalSaludDTO profesionalSaludDTO) {
+        ProfesionalSaludDTO nuevoProfesional = profesionalSaludService.registrarProfesional(profesionalSaludDTO);
+        return ResponseEntity.ok(nuevoProfesional);
+    }
+
     // HU08 – Consultar Pacientes Atendidos
     @PreAuthorize("hasAnyRole('ADMIN','PROFESIONALSALUD')")
     @GetMapping("/doctor/{id}/pacientes")
