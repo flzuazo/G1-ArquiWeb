@@ -28,7 +28,7 @@ public class ProfesionalSaludController {
         return ResponseEntity.ok(nuevoProfesional);
     }
 
-    @PostMapping("/public/profesional")
+    @PostMapping("/public/profesionalsalud")
     public ResponseEntity<ProfesionalSaludDTO> registrarProfesionalPublico(@Valid @RequestBody ProfesionalSaludDTO profesionalSaludDTO) {
         ProfesionalSaludDTO nuevoProfesional = profesionalSaludService.registrarProfesional(profesionalSaludDTO);
         return ResponseEntity.ok(nuevoProfesional);
