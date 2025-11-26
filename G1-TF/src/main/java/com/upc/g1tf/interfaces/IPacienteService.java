@@ -10,6 +10,7 @@ import java.util.List;
 public interface IPacienteService {
     PacienteDTO registrarPaciente(PacienteDTO pacienteDTO); //HU02
     PacienteDTO actualizarPaciente(Integer idPaciente, PacienteUpdateDTO updateDTO);
+    List<PacienteDTO> listarPacientes();
     List<HistorialMedicoDTO> listarHistorialPorPaciente(Integer idPaciente);//HU05
     PacienteDTO actualizarHistorial(Integer idPaciente, PacienteHistorialDTO pacientehistorialdto); //HU12
     PacienteDTO obtenerPaciente(Integer id);

@@ -18,4 +18,4 @@ INSERT INTO profesional_salud (id_profesional, nombres, apellidos, especialidad,
 INSERT INTO centro_medico (id_centro_medico, nombre_centro, direccion, telefono) VALUES (1, 'Centro Médico Sur', 'Av. La Salud 123','999999999');
 
 -- 4. CONSULTAS
-INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta) VALUES (1, 1, 1, 1, '2024-11-01',NULL,NULL), (2, 2, 2, 1, '2024-11-05', 'Fiebre', 'Paracetamol de 500'), (3, 3, 3, 1, '2024-11-10', 'Tos', 'Ibuprofeno de 500');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta) VALUES (1, 1, 1, 1, '2024-11-01','Alergia','Cetirizina'), (2, 2, 2, 1, '2024-11-05', 'Fiebre', 'Paracetamol de 500'), (3, 3, 3, 1, '2024-11-10', 'Tos', 'Ibuprofeno de 500');

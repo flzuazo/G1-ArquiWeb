@@ -15,7 +15,6 @@ import java.util.List;
 
 
 @RestController
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
 @CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true", exposedHeaders = "Authorization") //para cloud
 @RequestMapping("/api")
 public class PacienteController {
@@ -54,6 +53,12 @@ public class PacienteController {
             @PathVariable Integer id,
             @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
         return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
+    }
+
+    @GetMapping("/listar_pacientes")
+    public ResponseEntity<List<PacienteDTO>> listarPacientes() {
+        List<PacienteDTO> lista = pacienteService.listarPacientes();
+        return ResponseEntity.ok(lista);
     }
 
     // ======================================================

@@ -82,6 +82,14 @@ public class PacienteService implements IPacienteService {
         return modelMapper.map(actualizado, PacienteDTO.class);
     }
 
+    @Override
+    public List<PacienteDTO> listarPacientes() {
+        List<Paciente> pacientes = pacienteRepository.findAll();
+        return pacientes.stream()
+                .map(paciente -> modelMapper.map(paciente, PacienteDTO.class))
+                .collect(Collectors.toList());
+    }
+
     // ===== HU12 – Actualizar historial (alergias + antecedentes) =====
     @Override
     public PacienteDTO actualizarHistorial(Integer idPaciente, PacienteHistorialDTO pacientehistorialDTO) {
