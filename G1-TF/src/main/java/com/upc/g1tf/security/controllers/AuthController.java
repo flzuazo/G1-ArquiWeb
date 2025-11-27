@@ -82,14 +82,24 @@ public class AuthController {
         authResponseDTO.setRoles(roles);
         authResponseDTO.setJwt(token);
 
+         // Evita NullPointerException aquí
         if (userEntity.getPaciente() != null) {
             authResponseDTO.setIdPaciente(userEntity.getPaciente().getIdPaciente());
-        }
-        if (userEntity.getProfesionalSalud() != null) {
-            authResponseDTO.setIdProfesionalSalud(userEntity.getProfesionalSalud().getIdProfesional());
+        } else {
+            authResponseDTO.setIdPaciente(null);
         }
 
-        return ResponseEntity.ok().headers(responseHeaders).body(authResponseDTO);
+        if (userEntity.getProfesionalSalud() != null) {
+            authResponseDTO.setIdProfesional(
+                    userEntity.getProfesionalSalud().getIdProfesional()
+            );
+        } else {
+            authResponseDTO.setIdProfesional(null);
+        }
+
+        return ResponseEntity.ok()
+                .headers(responseHeaders)
+                .body(authResponseDTO);
     }
     @PutMapping("/change-password")
     public ResponseEntity<ChangePasswordResponse> changePassword(

@@ -6,13 +6,19 @@ import com.upc.g1tf.entities.ProfesionalSalud;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
 import com.upc.g1tf.repositories.ConsultaRepository;
 import com.upc.g1tf.repositories.ProfesionalSaludRepository;
+import com.upc.g1tf.security.entities.Role;
+import com.upc.g1tf.security.entities.User;
+import com.upc.g1tf.security.repositories.RoleRepository;
+import com.upc.g1tf.security.services.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ValidationException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,6 +29,14 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
     private ConsultaRepository consultaRepository;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private UserService userService;
+
+
     @Override
     public ProfesionalSaludDTO registrarProfesional(ProfesionalSaludDTO profesionalSaludDTO) {
         if (profesionalSaludDTO.getNombres() == null || profesionalSaludDTO.getApellidos() == null ||
@@ -43,10 +57,20 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
 
         // Convertir DTO a Entidad
         ProfesionalSalud profesionalSalud = modelMapper.map(profesionalSaludDTO, ProfesionalSalud.class);
-
-        // Guardar en BD
         profesionalSalud.setIdProfesional(null);
         ProfesionalSalud nuevoProfesional = profesionalSaludRepository.save(profesionalSalud);
+
+        User user = new User();
+        user.setUsername(profesionalSaludDTO.getEmail());
+        user.setPassword(passwordEncoder.encode("123456"));
+
+        // Rol PROFESIONAL
+        Role rolPro = roleRepository.findByName("ROLE_PROFESIONALSALUD");
+        user.setRoles(Set.of(rolPro));
+
+        user.setProfesionalSalud(nuevoProfesional);
+
+        userService.save(user);
 
         // Convertir Entidad a DTO
         return modelMapper.map(nuevoProfesional, ProfesionalSaludDTO.class);

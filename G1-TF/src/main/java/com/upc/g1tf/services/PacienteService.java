@@ -6,16 +6,22 @@ import com.upc.g1tf.entities.Paciente;
 import com.upc.g1tf.interfaces.IPacienteService;
 import com.upc.g1tf.repositories.ConsultaRepository;
 import com.upc.g1tf.repositories.PacienteRepository;
+import com.upc.g1tf.security.entities.User;
+import com.upc.g1tf.security.repositories.RoleRepository;
+import com.upc.g1tf.security.services.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,7 +33,12 @@ public class PacienteService implements IPacienteService {
     private ModelMapper modelMapper;
     @Autowired
     private ConsultaRepository consultaRepository;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private UserService userService;
 
     // ===== HU02 – Registrar Paciente =====
     @Override
@@ -50,8 +61,20 @@ public class PacienteService implements IPacienteService {
         paciente.setIdPaciente(null);
         Paciente pacienteGuardado = pacienteRepository.save(paciente);
 
+        //  Crear USER automáticamente
+        User user = new User();
+        user.setUsername(pacienteDTO.getDni());          // ejemplo: DNI como usuario
+        user.setPassword(passwordEncoder.encode("123456"));  // password temporal
+        user.setRoles(Set.of(roleRepository.findByName("ROLE_PACIENTE")));
+
+        // Establecer relación bidireccional
+        user.setPaciente(paciente);
+
+        userService.save(user);
+
         // Retornar DTO
         return modelMapper.map(pacienteGuardado, PacienteDTO.class);
+
     }
 
     // ===== HU10 – Actualizar Paciente =====
@@ -80,6 +103,12 @@ public class PacienteService implements IPacienteService {
         Paciente actualizado = pacienteRepository.save(paciente);
 
         return modelMapper.map(actualizado, PacienteDTO.class);
+    }
+
+    @Override
+    public Optional<PacienteDTO> buscarPorDni(String dni) {
+        Optional<Paciente> pacienteOpt = pacienteRepository.findByDni(dni);
+        return pacienteOpt.map(paciente -> modelMapper.map(paciente, PacienteDTO.class));
     }
 
     @Override
@@ -212,6 +241,8 @@ public class PacienteService implements IPacienteService {
                 .orElseThrow(() -> new RuntimeException("Paciente no encontrado"));
         return modelMapper.map(paciente, PacienteDTO.class);
     }
+
+
 }
 
 

@@ -93,5 +93,11 @@ public class PacienteController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/paciente_dni/{dni}")
+    public ResponseEntity<?> buscarPorDni(@PathVariable String dni) {
+        return pacienteService.buscarPorDni(dni)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
 }
