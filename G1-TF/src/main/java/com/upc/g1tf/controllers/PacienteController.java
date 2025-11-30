@@ -21,12 +21,13 @@ public class PacienteController {
     @Autowired
     private IPacienteService pacienteService;
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'PROFESIONALSALUD')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo_paciente")// HU02
     public ResponseEntity<PacienteDTO> registrarPaciente(@Valid @RequestBody PacienteDTO pacienteDTO) {
         PacienteDTO nuevoPaciente = pacienteService.registrarPaciente(pacienteDTO);
         return ResponseEntity.ok(nuevoPaciente);
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/actualizar_paciente/{id}") // HU10
     public ResponseEntity<PacienteDTO> actualizarPaciente(@PathVariable Integer id, @Valid @RequestBody PacienteUpdateDTO updateDTO) {
         PacienteDTO actualizado = pacienteService.actualizarPaciente(id, updateDTO);
@@ -60,39 +61,7 @@ public class PacienteController {
         List<PacienteDTO> lista = pacienteService.listarPacientes();
         return ResponseEntity.ok(lista);
     }
-
-    // ======================================================
-//  HU12 – Validar si un paciente existe (para botón Buscar)
-//  GET /api/pacientes/validar/${id}
-// ======================================================
-    @GetMapping("/paciente/validar/{id}")
-    public ResponseEntity<Boolean> validarPaciente(@PathVariable Integer id) {
-        boolean existe = pacienteService.validarPaciente(id);
-        return ResponseEntity.ok(existe);
-    }
-
-
-
-    // ======================================================
-//  HU12 – Listar historial completo para la tabla
-//  GET /api/pacientes/registros/${id}
-// ======================================================
-    @GetMapping("/paciente/registros/{id}")
-    public ResponseEntity<List<PacienteHistorialDTO>> obtenerHistorial(@PathVariable Integer id) {
-        List<PacienteHistorialDTO> lista = pacienteService.obtenerHistorial(id);
-        return ResponseEntity.ok(lista);
-    }
-    // ======================================================
-//  HU12 – Eliminar historial del paciente
-//  DELETE /api/registros/${registroId}
-// ======================================================
-    @DeleteMapping("/paciente/historial/{registroId}")
-    public ResponseEntity<Void> eliminarHistorial(@PathVariable Integer registroId) {
-
-        pacienteService.eliminarHistorial(registroId);
-        return ResponseEntity.noContent().build();
-    }
-
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_PROFESIONALSALUD')")
     @GetMapping("/paciente_dni/{dni}")
     public ResponseEntity<?> buscarPorDni(@PathVariable String dni) {
         return pacienteService.buscarPorDni(dni)
