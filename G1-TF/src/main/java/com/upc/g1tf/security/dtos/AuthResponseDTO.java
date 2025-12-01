@@ -12,5 +12,5 @@ public class AuthResponseDTO {
     private String jwt;
     private Set<String> roles;
     private Integer idPaciente;
-    private Integer idProfesionalSalud;
+    private Integer idProfesional;
 }

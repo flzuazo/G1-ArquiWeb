@@ -1,5 +1,6 @@
 package com.upc.g1tf.entities;
 
+import com.upc.g1tf.security.entities.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

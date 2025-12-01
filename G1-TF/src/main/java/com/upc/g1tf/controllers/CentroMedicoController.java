@@ -2,8 +2,6 @@ package com.upc.g1tf.controllers;
 
 
 import com.upc.g1tf.dtos.CentroMedicoDTO;
-import com.upc.g1tf.dtos.PacienteDTO;
-import com.upc.g1tf.entities.CentroMedico;
 import com.upc.g1tf.interfaces.ICentroMedicoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
