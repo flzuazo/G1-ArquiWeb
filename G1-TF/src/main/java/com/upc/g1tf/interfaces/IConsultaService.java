@@ -1,6 +1,8 @@
 package com.upc.g1tf.interfaces;
 
 import com.upc.g1tf.dtos.ConsultaDTO;
+import com.upc.g1tf.dtos.ConsultaPorMesDTO;
+
 import java.util.List;
 
 public interface IConsultaService {
@@ -10,4 +12,5 @@ public interface IConsultaService {
     ConsultaDTO modificarConsulta(ConsultaDTO consultaDTO);
     void eliminarConsulta(Integer id);
     List<ConsultaDTO> listarHistorialPorPaciente(Integer pacienteId);
+    List<ConsultaPorMesDTO> obtenerConsultasPorMes();
 }

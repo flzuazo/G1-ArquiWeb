@@ -20,3 +20,27 @@ INSERT INTO centro_medico (id_centro_medico, nombre_centro, direccion, telefono)
 
 -- 4. CONSULTAS
 INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta) VALUES (100, 100, 100, 100, '2024-11-01','Alergia','Cetirizina');
+-- Consultas del 2024
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (101, 100, 100, 100, '2024-03-15', 'Resfriado', 'Paracetamol');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (102, 100, 100, 100, '2024-07-20', 'Dolor de cabeza', 'Ibuprofeno');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (103, 100, 100, 100, '2024-05-10', 'Gripe', 'Amoxicilina');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (104, 100, 100, 100, '2024-11-05', 'Indigestión', 'Omeprazol');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (105, 100, 100, 100, '2024-02-22', 'Tensión muscular', 'Diclofenaco');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (106, 100, 100, 100, '2024-09-25', 'Mareos', 'Betahistina');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (107, 100, 100, 100, '2024-07-03', 'Eczema', 'Hidrocortisona');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (108, 100, 100, 100, '2024-07-12', 'Hipertensión', 'Amlodipino');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (109, 100, 100, 100, '2024-06-17', 'Asma', 'Salbutamol');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (110, 100, 100, 100, '2024-03-21', 'Dolor lumbar', 'Paracetamol');
+
+-- Consultas del 2025
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (111, 100, 100, 100, '2025-09-05', 'Conjuntivitis', 'Colirio');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (112, 100, 100, 100, '2025-03-28', 'Insomnio', 'Melatonina');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (113, 100, 100, 100, '2025-09-14', 'Anemia', 'Sulfato ferroso');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (114, 100, 100, 100, '2025-09-30', 'Alergia estacional', 'Loratadina');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (115, 100, 100, 100, '2025-03-12', 'Dolor abdominal', 'Omeprazol');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (116, 100, 100, 100, '2025-01-18', 'Tos', 'Dextrometorfano');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (117, 100, 100, 100, '2025-03-24', 'Migraña', 'Sumatriptán');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (118, 100, 100, 100, '2025-04-02', 'Reflujo ácido', 'Esomeprazol');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (119, 100, 100, 100, '2025-05-07', 'Otitis', 'Amoxicilina');
+INSERT INTO consulta (id_consulta, id_paciente, id_profesional, id_centro, fecha_consulta, diagnostico, receta)VALUES (120, 100, 100, 100, '2025-03-25', 'Aftas bucales', 'Benzydamina');
+

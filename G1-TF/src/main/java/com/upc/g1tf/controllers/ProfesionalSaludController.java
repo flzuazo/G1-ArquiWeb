@@ -2,6 +2,7 @@ package com.upc.g1tf.controllers;
 
 import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ProfesionalSaludDTO;
+import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -40,6 +41,12 @@ public class ProfesionalSaludController {
     @PreAuthorize("hasAnyRole('ADMIN','PACIENTE')")
     public ResponseEntity<List<ProfesionalSaludDTO>> listar() {
         return ResponseEntity.ok(profesionalSaludService.listar());
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/reportes/especialidades")
+    public ResponseEntity<List<ReporteEspecialidadDTO>> obtenerReporteEspecialidades() {
+        return ResponseEntity.ok(profesionalSaludService.reportePorEspecialidad());
     }
 
 }
