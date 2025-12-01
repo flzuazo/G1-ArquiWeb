@@ -1,6 +1,7 @@
 package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.ConsultaDTO;
+import com.upc.g1tf.dtos.ConsultaPorMesDTO;
 import com.upc.g1tf.entities.*;
 import com.upc.g1tf.interfaces.IConsultaService;
 import com.upc.g1tf.repositories.*;
@@ -8,6 +9,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -116,5 +118,20 @@ public class ConsultaService implements IConsultaService {
                 .stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    // Metodo que obtiene las consultas agrupadas por mes y año
+    public List<ConsultaPorMesDTO> obtenerConsultasPorMes() {
+        List<Object[]> rawResults = consultaRepository.obtenerConsultasPorMes();
+        List<ConsultaPorMesDTO> result = new ArrayList<>();
+
+        for (Object[] row : rawResults) {
+            int mes = ((Number) row[0]).intValue();
+            int año = ((Number) row[1]).intValue();
+            long cantidadConsultas = ((Number) row[2]).longValue();
+            result.add(new ConsultaPorMesDTO(mes, año, cantidadConsultas));
+        }
+
+        return result;
     }
 }

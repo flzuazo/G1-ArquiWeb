@@ -2,6 +2,7 @@ package com.upc.g1tf.services;
 
 import com.upc.g1tf.dtos.PacienteAtendidoDTO;
 import com.upc.g1tf.dtos.ProfesionalSaludDTO;
+import com.upc.g1tf.dtos.ReporteEspecialidadDTO;
 import com.upc.g1tf.entities.ProfesionalSalud;
 import com.upc.g1tf.interfaces.IProfesionalSaludService;
 import com.upc.g1tf.repositories.ConsultaRepository;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -90,6 +92,19 @@ public class ProfesionalSaludService implements IProfesionalSaludService {
         return profesionalSaludRepository.findAll().stream()
                 .map(p -> modelMapper.map(p, ProfesionalSaludDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    // Nueva implementación: reporte por especialidad
+    @Override
+    public List<ReporteEspecialidadDTO> reportePorEspecialidad() {
+        List<Object[]> rows = profesionalSaludRepository.countProfesionalesByEspecialidad();
+        List<ReporteEspecialidadDTO> lista = new ArrayList<>();
+        for (Object[] r : rows) {
+            String especialidad = r[0] != null ? r[0].toString() : "Sin especialidad";
+            Long cantidad = r[1] != null ? ((Number) r[1]).longValue() : 0L;
+            lista.add(new ReporteEspecialidadDTO(especialidad, cantidad));
+        }
+        return lista;
     }
 
 
