@@ -46,16 +46,6 @@ public class PacienteController {
         return ResponseEntity.ok(paciente);
     }
 
-
-    // ===== HU12 – Actualizar Antecedentes =====
-    @PutMapping("/paciente/historial/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_PROFESIONALSALUD')")
-    public ResponseEntity<PacienteDTO> actualizarHistorial(
-            @PathVariable Integer id,
-            @Valid @RequestBody PacienteHistorialDTO body) { // <-- este
-        return ResponseEntity.ok(pacienteService.actualizarHistorial(id, body));
-    }
-
     @GetMapping("/listar_pacientes")
     public ResponseEntity<List<PacienteDTO>> listarPacientes() {
         List<PacienteDTO> lista = pacienteService.listarPacientes();

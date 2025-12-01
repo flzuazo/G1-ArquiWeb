@@ -29,7 +29,7 @@ public class ProfesionalSaludController {
         return ResponseEntity.ok(nuevoProfesional);
     }
 
-    // HU08 – Consultar Pacientes Atendidos
+    // HU07 – Consultar Pacientes Atendidos
     @PreAuthorize("hasAnyRole('ADMIN','PROFESIONALSALUD')")
     @GetMapping("/doctor/{id}/pacientes")
     public ResponseEntity<List<PacienteAtendidoDTO>> listarPacientesAtendidos(@PathVariable Integer id) {
