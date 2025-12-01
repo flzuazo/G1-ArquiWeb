@@ -1,6 +1,7 @@
 package com.upc.g1tf.controllers;
 
 import com.upc.g1tf.dtos.ConsultaDTO;
+import com.upc.g1tf.dtos.ConsultaPorMesDTO;
 import com.upc.g1tf.interfaces.IConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -50,5 +51,17 @@ public class ConsultaController {
     public List<ConsultaDTO> listarHistorialPorPaciente(@PathVariable Integer pacienteId) {
         return consultaService.listarHistorialPorPaciente(pacienteId);
     }
+
+    // Endpoint para obtener las consultas por mes y año
+    @PreAuthorize("hasRole('PROFESIONALSALUD')")
+    @GetMapping("/consultas-por-mes")
+    public List<ConsultaPorMesDTO> obtenerConsultasPorMes() {
+        return consultaService.obtenerConsultasPorMes();
+    }
+
+
+
+
+
 }
 

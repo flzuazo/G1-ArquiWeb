@@ -68,4 +68,12 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
     List<ReporteCentroDTO> generarReporte(@Param("fechaInicio") LocalDate fechaInicio,
                                           @Param("fechaFin") LocalDate fechaFin);
 
+    // Consulta para obtener las consultas por mes y año
+    @Query("SELECT EXTRACT(MONTH FROM c.fechaConsulta) AS mes, EXTRACT(YEAR FROM c.fechaConsulta) AS año, COUNT(c) AS cantidadConsultas "
+            + "FROM Consulta c WHERE EXTRACT(YEAR FROM c.fechaConsulta) IN (2024, 2025) "
+            + "GROUP BY EXTRACT(MONTH FROM c.fechaConsulta), EXTRACT(YEAR FROM c.fechaConsulta) "
+            + "ORDER BY año, mes")
+    List<Object[]> obtenerConsultasPorMes();
+
+
 }
