@@ -38,7 +38,7 @@ public class ProfesionalSaludController {
         return ResponseEntity.ok(pacientes);
     }
     @GetMapping("/profesionales")
-    @PreAuthorize("hasAnyRole('ADMIN','PACIENTE')")
+    @PreAuthorize("hasAnyRole('ADMIN','PACIENTE','PROFESIONALSALUD')")
     public ResponseEntity<List<ProfesionalSaludDTO>> listar() {
         return ResponseEntity.ok(profesionalSaludService.listar());
     }
